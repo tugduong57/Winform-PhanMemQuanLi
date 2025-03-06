@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlChinh = new System.Windows.Forms.Panel();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.btnBangGia = new System.Windows.Forms.Button();
             this.btnHangHoa = new System.Windows.Forms.Button();
             this.btnDoiTac = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnHoaDon = new System.Windows.Forms.Button();
+            this.pnlChinh = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,17 +67,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.639345F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75657F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.636788F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(352, 853);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 853);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // pnlChinh
-            // 
-            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChinh.Location = new System.Drawing.Point(352, 0);
-            this.pnlChinh.Name = "pnlChinh";
-            this.pnlChinh.Size = new System.Drawing.Size(1230, 853);
-            this.pnlChinh.TabIndex = 1;
             // 
             // btnTaiKhoan
             // 
@@ -87,13 +78,15 @@
             this.btnTaiKhoan.Location = new System.Drawing.Point(9, 712);
             this.btnTaiKhoan.Margin = new System.Windows.Forms.Padding(9);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
-            this.btnTaiKhoan.Size = new System.Drawing.Size(334, 107);
+            this.btnTaiKhoan.Size = new System.Drawing.Size(322, 107);
             this.btnTaiKhoan.TabIndex = 6;
             this.btnTaiKhoan.Text = "Tài khoản";
             this.btnTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTaiKhoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTaiKhoan.UseVisualStyleBackColor = false;
             this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
+            this.btnTaiKhoan.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnTaiKhoan.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // btnBangGia
             // 
@@ -103,13 +96,15 @@
             this.btnBangGia.Location = new System.Drawing.Point(9, 574);
             this.btnBangGia.Margin = new System.Windows.Forms.Padding(9);
             this.btnBangGia.Name = "btnBangGia";
-            this.btnBangGia.Size = new System.Drawing.Size(334, 107);
+            this.btnBangGia.Size = new System.Drawing.Size(322, 107);
             this.btnBangGia.TabIndex = 5;
             this.btnBangGia.Text = "Bảng giá";
             this.btnBangGia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBangGia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBangGia.UseVisualStyleBackColor = false;
             this.btnBangGia.Click += new System.EventHandler(this.btnBangGia_Click);
+            this.btnBangGia.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnBangGia.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // btnHangHoa
             // 
@@ -119,13 +114,15 @@
             this.btnHangHoa.Location = new System.Drawing.Point(9, 22);
             this.btnHangHoa.Margin = new System.Windows.Forms.Padding(9);
             this.btnHangHoa.Name = "btnHangHoa";
-            this.btnHangHoa.Size = new System.Drawing.Size(334, 107);
+            this.btnHangHoa.Size = new System.Drawing.Size(322, 107);
             this.btnHangHoa.TabIndex = 1;
             this.btnHangHoa.Text = "Hàng Hóa";
             this.btnHangHoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHangHoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHangHoa.UseVisualStyleBackColor = false;
             this.btnHangHoa.Click += new System.EventHandler(this.btnHangHoa_Click);
+            this.btnHangHoa.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnHangHoa.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // btnDoiTac
             // 
@@ -135,13 +132,15 @@
             this.btnDoiTac.Location = new System.Drawing.Point(9, 160);
             this.btnDoiTac.Margin = new System.Windows.Forms.Padding(9);
             this.btnDoiTac.Name = "btnDoiTac";
-            this.btnDoiTac.Size = new System.Drawing.Size(334, 107);
+            this.btnDoiTac.Size = new System.Drawing.Size(322, 107);
             this.btnDoiTac.TabIndex = 2;
             this.btnDoiTac.Text = "Đối tác";
             this.btnDoiTac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDoiTac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDoiTac.UseVisualStyleBackColor = false;
             this.btnDoiTac.Click += new System.EventHandler(this.btnDoiTac_Click);
+            this.btnDoiTac.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnDoiTac.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // btnThongKe
             // 
@@ -151,13 +150,15 @@
             this.btnThongKe.Location = new System.Drawing.Point(9, 436);
             this.btnThongKe.Margin = new System.Windows.Forms.Padding(9);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(334, 107);
+            this.btnThongKe.Size = new System.Drawing.Size(322, 107);
             this.btnThongKe.TabIndex = 4;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThongKe.UseVisualStyleBackColor = false;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            this.btnThongKe.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnThongKe.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // btnHoaDon
             // 
@@ -167,13 +168,24 @@
             this.btnHoaDon.Location = new System.Drawing.Point(9, 298);
             this.btnHoaDon.Margin = new System.Windows.Forms.Padding(9);
             this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(334, 107);
+            this.btnHoaDon.Size = new System.Drawing.Size(322, 107);
             this.btnHoaDon.TabIndex = 3;
             this.btnHoaDon.Text = "Hóa đơn";
             this.btnHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHoaDon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHoaDon.UseVisualStyleBackColor = false;
             this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
+            this.btnHoaDon.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnHoaDon.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
+            // 
+            // pnlChinh
+            // 
+            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlChinh.Location = new System.Drawing.Point(340, 0);
+            this.pnlChinh.Name = "pnlChinh";
+            this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
+            this.pnlChinh.TabIndex = 1;
             // 
             // Form1
             // 
@@ -186,7 +198,9 @@
             this.Margin = new System.Windows.Forms.Padding(9);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Quản lí bán hàng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

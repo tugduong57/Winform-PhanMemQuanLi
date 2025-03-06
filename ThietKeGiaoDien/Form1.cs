@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,66 +17,111 @@ namespace ThietKeGiaoDien
         {
             InitializeComponent();
         }
+        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
+                "; Initial Catalog=dataForProject" +
+                "; Integrated Security=True";
+        SqlConnection bienConnect = null;
 
-        // Cách chèn User-Control
-        private void btn_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            UserControl_HangHoa hanghoa  = new UserControl_HangHoa();
-            this.Controls.Add(hanghoa);
-            hanghoa.Location = new Point(352, 0);
-            //hanghoa.Dock = DockStyle.Left;
+            bienConnect = new SqlConnection(ConnectString);
+            bienConnect.Open();
         }
 
-        FormHangHoa childHangHoa = new FormHangHoa();
+        // = false khi form đó đã được mở 1 lần
+        public bool fHangHoa = true, fDoiTac = true, fHoaDon = true, 
+            fThongKe = true, fBangGia = true, fTaiKhoan = true;
+
+        FormHangHoa childHangHoa; 
+
         private void btnHangHoa_Click(object sender, EventArgs e)
         {
-            childHangHoa.TopLevel = false;
+            if (fHangHoa)
+            {
+                childHangHoa = new FormHangHoa();
+                childHangHoa.connOfHangHoa = bienConnect;
+                fHangHoa = false; childHangHoa.TopLevel = false;
+            }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childHangHoa);
             childHangHoa.Dock = DockStyle.Fill;
             childHangHoa.Show();
         }
 
-        FormDoiTac childDoiTac = new FormDoiTac();
+        FormDoiTac childDoiTac;
         private void btnDoiTac_Click(object sender, EventArgs e)
         {
-            // Muốn chèn Form vào Panl, cần đặt TopLovel = false;
-            childDoiTac.TopLevel = false;
+            if (fDoiTac)
+            {
+                childDoiTac = new FormDoiTac();
+                fDoiTac = false; childDoiTac.TopLevel = false;
+            }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childDoiTac);
             childDoiTac.Dock = DockStyle.Fill;
             childDoiTac.Show();
         }
 
-        FormHoaDon childHoaDon = new FormHoaDon();
+        FormHoaDon childHoaDon;
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            childHoaDon.TopLevel = false;
+            if (fHoaDon)
+            {
+                childHoaDon = new FormHoaDon();
+                fHoaDon = false; childHoaDon.TopLevel = false;
+            }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childHoaDon);
             childHoaDon.Dock = DockStyle.Fill;
             childHoaDon.Show();
         }
 
-        FormThongKe childThongKe = new FormThongKe();
+        FormThongKe childThongKe;
+
+        private void btnX_MouseEnter(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.Gray;
+        }
+
+        private void btnX_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.White;
+        }
+
+
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            childThongKe.TopLevel = false;
+            if (fThongKe)
+            {
+                childThongKe = new FormThongKe();
+                childThongKe.connOfThongKe = bienConnect;
+                fThongKe = false; childThongKe.TopLevel = false;
+            }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childThongKe);
             childThongKe.Dock = DockStyle.Fill;
             childThongKe.Show();
         }
         
-        FormBangGia childBangGia = new FormBangGia();
+        FormBangGia childBangGia;
         private void btnBangGia_Click(object sender, EventArgs e)
         {
-            childBangGia.TopLevel = false;
+            if (fBangGia)
+            {
+                childBangGia = new FormBangGia();
+                fBangGia = false; childBangGia.TopLevel = false;
+            }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childBangGia);
             childBangGia.Dock = DockStyle.Fill;
             childBangGia.Show();
         }
 
-        FormTaiKhoan childTaiKhoan = new FormTaiKhoan();
+        FormTaiKhoan childTaiKhoan;
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
-            childTaiKhoan.TopLevel = false;
+            if (fTaiKhoan)
+            {
+                childTaiKhoan = new FormTaiKhoan();
+                fTaiKhoan = false; childTaiKhoan.TopLevel = false;
+            }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childTaiKhoan);
             childTaiKhoan.Dock = DockStyle.Fill;
             childTaiKhoan.Show();
