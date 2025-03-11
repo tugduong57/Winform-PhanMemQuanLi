@@ -39,8 +39,7 @@ def C_database():
 				[Mã sản phẩm] varchar(10) not null primary key,
 				[Tên sản phẩm] nvarchar(MAX) not null,
 				Hãng nvarchar(10) not null,
-				[Phân loại] nvarchar(20) not null,
-				[Ghi chú] nvarchar(MAX)
+				[Phân loại] nvarchar(20) not null
 			)
 		end
 	'''
@@ -57,6 +56,7 @@ def C_database():
 				[Số lượng] smallint not null,
 				[Giá nhập trung bình] decimal(18,2) not null,
 				[Đơn giá] decimal(18,2) not null,
+				[Ghi chú] nvarchar(MAX),
 				PRIMARY KEY ([Mã sản phẩm], [Đơn vị tính]),
 				CONSTRAINT FK_dvtSanPham_SanPham FOREIGN KEY ([Mã sản phẩm])
 					REFERENCES SanPham([Mã sản phẩm]) ON DELETE CASCADE
