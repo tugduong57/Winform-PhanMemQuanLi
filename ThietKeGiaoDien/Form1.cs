@@ -20,12 +20,22 @@ namespace ThietKeGiaoDien
         string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
-        SqlConnection bienConnect = null;
 
+        public SqlConnection bienConnect;
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             bienConnect = new SqlConnection(ConnectString);
             bienConnect.Open();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (bienConnect != null && bienConnect.State == ConnectionState.Open)
+            {
+                bienConnect.Close();
+                bienConnect.Dispose();
+            }
         }
 
         // = false khi form đó đã được mở 1 lần
@@ -75,19 +85,6 @@ namespace ThietKeGiaoDien
 
         FormThongKe childThongKe;
 
-        private void btnX_MouseEnter(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Gray;
-        }
-
-        private void btnX_MouseLeave(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.White;
-        }
-
-
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             if (fThongKe)
@@ -102,11 +99,13 @@ namespace ThietKeGiaoDien
         }
         
         FormBangGia childBangGia;
+
         private void btnBangGia_Click(object sender, EventArgs e)
         {
             if (fBangGia)
-            {
+            { 
                 childBangGia = new FormBangGia();
+                childBangGia.connOfBangGia = bienConnect;
                 fBangGia = false; childBangGia.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childBangGia);
@@ -125,6 +124,18 @@ namespace ThietKeGiaoDien
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childTaiKhoan);
             childTaiKhoan.Dock = DockStyle.Fill;
             childTaiKhoan.Show();
+        }
+
+        private void btnX_MouseEnter(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.Gray;
+        }
+
+        private void btnX_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.White;
         }
 
     }

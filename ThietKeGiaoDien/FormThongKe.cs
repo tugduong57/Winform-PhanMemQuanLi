@@ -22,26 +22,23 @@ namespace ThietKeGiaoDien
 
         private void FormThongKe_Load(object sender, EventArgs e)
         {
-            string lenhTruyVanSQL = "Select [Ngày tạo], [ID đối tác], [Tổng giá trị] from HoaDon";
+            string lenhTruyVanSQL = "Select [Ngày tạo], [Mã đối tác], [Tổng tiền] from HoaDon";
             SqlDataAdapter bienSQLDataAdapter = new SqlDataAdapter(lenhTruyVanSQL, connOfThongKe);
 
             DataTable bienDataTable = new DataTable();
 
             bienSQLDataAdapter.Fill(bienDataTable);
 
-            dgvThongKe.DataSource = bienDataTable;
-
+            //dgvThongKe.DataSource = bienDataTable;
+            /*
             foreach (DataGridViewColumn dataGridViewColumn in dgvThongKe.Columns)
             {
                 dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridViewColumn.MinimumWidth = 50;
             }
             dgvThongKe.Columns[0].MinimumWidth = 20;
-
+            */
         }
-
-
-
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
