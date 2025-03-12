@@ -134,9 +134,10 @@ def C_database():
 			create table ChiTietHoaDon (
 				[Mã hóa đơn] varchar(10) not null,
 				[Mã sản phẩm] varchar(10) not null,
+				[Đơn vị tính] nvarchar(10) not null,
 				[Số lượng] smallint not null,
 				[Đơn giá] decimal(18,2) not null,
-				PRIMARY KEY ([Mã hóa đơn], [Mã sản phẩm]),
+				PRIMARY KEY ([Mã hóa đơn], [Mã sản phẩm], [Đơn vị tính]),
 				CONSTRAINT FK_ChiTietHoaDon_HoaDon FOREIGN KEY ([Mã hóa đơn])
 					REFERENCES HoaDon([Mã hóa đơn]) ON DELETE CASCADE,
 				CONSTRAINT FK_ChiTietHoaDon_SanPham FOREIGN KEY ([Mã sản phẩm])
@@ -184,12 +185,13 @@ def Delete_database():
 
     print("Đã Delete")
 
+# Xóa database
+Delete_database()
 
 # Tạo database
 C_database()
 
-# Xóa database
-#Delete_database()
+
 
 
 
