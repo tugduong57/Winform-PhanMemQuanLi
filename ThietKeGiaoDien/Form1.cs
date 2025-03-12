@@ -63,6 +63,7 @@ namespace ThietKeGiaoDien
             if (fDoiTac)
             {
                 childDoiTac = new FormDoiTac();
+                childDoiTac.connOfDoiTac = bienConnect;
                 fDoiTac = false; childDoiTac.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childDoiTac);
@@ -76,6 +77,7 @@ namespace ThietKeGiaoDien
             if (fHoaDon)
             {
                 childHoaDon = new FormHoaDon();
+                childHoaDon.conofHoaDon = bienConnect;
                 fHoaDon = false; childHoaDon.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childHoaDon);
@@ -119,6 +121,7 @@ namespace ThietKeGiaoDien
             if (fTaiKhoan)
             {
                 childTaiKhoan = new FormTaiKhoan();
+                childTaiKhoan.connOfTaiKhoan = bienConnect;
                 fTaiKhoan = false; childTaiKhoan.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childTaiKhoan);
