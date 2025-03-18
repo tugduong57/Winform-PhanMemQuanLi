@@ -222,7 +222,7 @@ namespace ThietKeGiaoDien
                     string str_giaNhap = row.Cells["cl_Gia"].Value?.ToString().Trim();
                     string str_soLuong = row.Cells["cl_SoLuong"].Value?.ToString().Trim();
                     string str_thanhTien = row.Cells["cl_thanhTien"].Value?.ToString().Trim();
-                    string ghiChu = row.Cells["cl_ghiChu"].Value?.ToString().Trim() ?? " "; // Ghi chú có thể để trống
+                    string ghiChu = tb_GhiChu.Text;
                     MessageBox.Show(maSP);
                     // Kiểm tra từng ô, nếu rỗng thì đặt dấu "!" vào ô đó
                     if (string.IsNullOrEmpty(tenSP))
@@ -495,6 +495,23 @@ namespace ThietKeGiaoDien
         private void dgvHoaDonNhap_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
+        }
+        private void Luu_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.Olive;
+        }
+
+        private void FormXX_MouseEnter(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.FromArgb(64, 72, 114);
+        }
+
+        private void Huy_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.Red;
         }
     }
 }

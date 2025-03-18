@@ -52,10 +52,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_DiaChi = new System.Windows.Forms.TextBox();
             this.tb_SDT = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.tb_Tuoi = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tb_GhiChu = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvHoaDonXuat = new System.Windows.Forms.DataGridView();
             this.cl_tenSP = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -65,7 +67,6 @@
             this.cl_soLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_ghiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -120,7 +121,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(896, 8);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(0, 53);
+            this.textBox1.Size = new System.Drawing.Size(0, 44);
             this.textBox1.TabIndex = 2;
             // 
             // tableLayoutPanel6
@@ -142,10 +143,12 @@
             this.tableLayoutPanel6.Controls.Add(this.label2, 3, 1);
             this.tableLayoutPanel6.Controls.Add(this.tb_DiaChi, 2, 2);
             this.tableLayoutPanel6.Controls.Add(this.tb_SDT, 4, 1);
-            this.tableLayoutPanel6.Controls.Add(this.button2, 3, 3);
-            this.tableLayoutPanel6.Controls.Add(this.button1, 4, 3);
             this.tableLayoutPanel6.Controls.Add(this.label23, 3, 2);
             this.tableLayoutPanel6.Controls.Add(this.tb_Tuoi, 4, 2);
+            this.tableLayoutPanel6.Controls.Add(this.label8, 1, 3);
+            this.tableLayoutPanel6.Controls.Add(this.tb_GhiChu, 2, 3);
+            this.tableLayoutPanel6.Controls.Add(this.button2, 4, 3);
+            this.tableLayoutPanel6.Controls.Add(this.button1, 3, 3);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 61);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -155,7 +158,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1288, 130);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1288, 147);
             this.tableLayoutPanel6.TabIndex = 18;
             // 
             // tableLayoutPanel4
@@ -203,7 +206,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(350, 8);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(0, 53);
+            this.textBox4.Size = new System.Drawing.Size(0, 44);
             this.textBox4.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -251,7 +254,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(462, 8);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(0, 53);
+            this.textBox3.Size = new System.Drawing.Size(0, 44);
             this.textBox3.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -299,7 +302,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(246, 8);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(0, 53);
+            this.textBox2.Size = new System.Drawing.Size(0, 44);
             this.textBox2.TabIndex = 2;
             // 
             // flowLayoutPanel5
@@ -313,9 +316,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(24, 45);
+            this.label4.Location = new System.Drawing.Point(24, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 36);
+            this.label4.Size = new System.Drawing.Size(86, 29);
             this.label4.TabIndex = 2;
             this.label4.Text = "Địa chỉ";
             // 
@@ -325,7 +328,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(24, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 36);
+            this.label5.Size = new System.Drawing.Size(129, 29);
             this.label5.TabIndex = 1;
             this.label5.Text = "Tên Khách";
             // 
@@ -336,7 +339,7 @@
             this.cbb_KhachHang.FormattingEnabled = true;
             this.cbb_KhachHang.Location = new System.Drawing.Point(224, 8);
             this.cbb_KhachHang.Name = "cbb_KhachHang";
-            this.cbb_KhachHang.Size = new System.Drawing.Size(417, 39);
+            this.cbb_KhachHang.Size = new System.Drawing.Size(417, 34);
             this.cbb_KhachHang.TabIndex = 9;
             this.cbb_KhachHang.SelectedIndexChanged += new System.EventHandler(this.cbb_KhachHang_SelectedIndexChanged);
             // 
@@ -347,7 +350,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(647, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 40);
+            this.label2.Size = new System.Drawing.Size(154, 45);
             this.label2.TabIndex = 10;
             this.label2.Text = "Số điện thoại";
             // 
@@ -355,9 +358,9 @@
             // 
             this.tb_DiaChi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_DiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_DiaChi.Location = new System.Drawing.Point(224, 48);
+            this.tb_DiaChi.Location = new System.Drawing.Point(224, 53);
             this.tb_DiaChi.Name = "tb_DiaChi";
-            this.tb_DiaChi.Size = new System.Drawing.Size(417, 41);
+            this.tb_DiaChi.Size = new System.Drawing.Size(417, 35);
             this.tb_DiaChi.TabIndex = 12;
             // 
             // tb_SDT
@@ -366,39 +369,17 @@
             this.tb_SDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_SDT.Location = new System.Drawing.Point(847, 8);
             this.tb_SDT.Name = "tb_SDT";
-            this.tb_SDT.Size = new System.Drawing.Size(417, 41);
+            this.tb_SDT.Size = new System.Drawing.Size(417, 35);
             this.tb_SDT.TabIndex = 11;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button2.Location = new System.Drawing.Point(647, 88);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 33);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Hủy";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_Huy_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(847, 88);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 33);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Lưu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button_Them_Click);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Left;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(647, 45);
+            this.label23.Location = new System.Drawing.Point(647, 50);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(74, 40);
+            this.label23.Size = new System.Drawing.Size(62, 45);
             this.label23.TabIndex = 18;
             this.label23.Text = "Tuổi";
             // 
@@ -406,10 +387,57 @@
             // 
             this.tb_Tuoi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Tuoi.Location = new System.Drawing.Point(847, 48);
+            this.tb_Tuoi.Location = new System.Drawing.Point(847, 53);
             this.tb_Tuoi.Name = "tb_Tuoi";
-            this.tb_Tuoi.Size = new System.Drawing.Size(417, 41);
+            this.tb_Tuoi.Size = new System.Drawing.Size(417, 35);
             this.tb_Tuoi.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(24, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 29);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Ghi chú";
+            // 
+            // tb_GhiChu
+            // 
+            this.tb_GhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_GhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_GhiChu.Location = new System.Drawing.Point(224, 98);
+            this.tb_GhiChu.Name = "tb_GhiChu";
+            this.tb_GhiChu.Size = new System.Drawing.Size(417, 35);
+            this.tb_GhiChu.TabIndex = 22;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.button2.Location = new System.Drawing.Point(847, 98);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(173, 39);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Hủy";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button_Huy_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.FormHoaDonXuat_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.Huy_MouseLeave);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Olive;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(647, 98);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 39);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Lưu";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button_Them_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.FormHoaDonXuat_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.Luu_MouseLeave);
             // 
             // tableLayoutPanel3
             // 
@@ -420,18 +448,19 @@
             this.tableLayoutPanel3.Controls.Add(this.dgvHoaDonXuat, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 191);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 208);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1288, 526);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1288, 509);
             this.tableLayoutPanel3.TabIndex = 19;
             // 
             // dgvHoaDonXuat
             // 
             this.dgvHoaDonXuat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHoaDonXuat.BackgroundColor = System.Drawing.Color.White;
             this.dgvHoaDonXuat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDonXuat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_tenSP,
@@ -440,15 +469,15 @@
             this.cl_DVT,
             this.cl_soLuong,
             this.cl_Gia,
-            this.cl_ThanhTien,
-            this.cl_ghiChu});
+            this.cl_ThanhTien});
             this.dgvHoaDonXuat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHoaDonXuat.Location = new System.Drawing.Point(23, 23);
             this.dgvHoaDonXuat.Name = "dgvHoaDonXuat";
             this.dgvHoaDonXuat.RowHeadersWidth = 51;
-            this.dgvHoaDonXuat.Size = new System.Drawing.Size(1242, 480);
+            this.dgvHoaDonXuat.Size = new System.Drawing.Size(1242, 463);
             this.dgvHoaDonXuat.TabIndex = 0;
             this.dgvHoaDonXuat.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonXuat_CellValueChanged);
+            this.dgvHoaDonXuat.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvHoaDonXuat_DataError);
             this.dgvHoaDonXuat.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvHoaDonXuat_EditingControlShowing);
             // 
             // cl_tenSP
@@ -506,15 +535,9 @@
             this.cl_ThanhTien.Name = "cl_ThanhTien";
             this.cl_ThanhTien.ReadOnly = true;
             // 
-            // cl_ghiChu
-            // 
-            this.cl_ghiChu.HeaderText = "Ghi chú";
-            this.cl_ghiChu.MinimumWidth = 6;
-            this.cl_ghiChu.Name = "cl_ghiChu";
-            // 
             // FormHoaDonXuat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1288, 717);
             this.Controls.Add(this.tableLayoutPanel3);
@@ -526,6 +549,7 @@
             this.Name = "FormHoaDonXuat";
             this.Text = "FormHoaDonXuat";
             this.Load += new System.EventHandler(this.FormXuat_Load);
+            this.MouseEnter += new System.EventHandler(this.FormHoaDonXuat_MouseEnter);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -574,6 +598,8 @@
         private System.Windows.Forms.TextBox tb_Tuoi;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.DataGridView dgvHoaDonXuat;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tb_GhiChu;
         private System.Windows.Forms.DataGridViewComboBoxColumn cl_tenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Hang;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_phanLoai;
@@ -581,6 +607,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_soLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Gia;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_ThanhTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_ghiChu;
     }
 }

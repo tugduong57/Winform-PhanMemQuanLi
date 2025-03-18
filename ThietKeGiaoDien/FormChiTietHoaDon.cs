@@ -30,9 +30,21 @@ namespace ThietKeGiaoDien
         {
             try
             {
-                string lenhSQL = "select * from ChiTietHoaDon where [Mã Hóa Đơn] = @maHD";
+                string lenhSQL = @"
+                SELECT 
+                    sp.[Mã sản phẩm], 
+                    sp.[Tên sản phẩm], 
+                    dv.[Đơn vị tính], 
+                    sp.[Phân loại], 
+                    cthd.[Số lượng], 
+                    cthd.[Đơn giá], 
+                    (cthd.[Số lượng] * cthd.[Đơn giá]) AS [Thành tiền]
+                FROM ChiTietHoaDon cthd
+                JOIN SanPham sp ON cthd.[Mã sản phẩm] = sp.[Mã sản phẩm]
+                JOIN dvtSanPham dv ON sp.[Mã sản phẩm] = dv.[Mã sản phẩm]
+                WHERE cthd.[Mã hóa đơn] = @MaHoaDon";
                 SqlDataAdapter adapter = new SqlDataAdapter(lenhSQL, BienConnect);
-                adapter.SelectCommand.Parameters.AddWithValue("@maHD", maHD);
+                adapter.SelectCommand.Parameters.AddWithValue("@MaHoaDon", maHD);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgvChiTietHoaDon.DataSource = dt;

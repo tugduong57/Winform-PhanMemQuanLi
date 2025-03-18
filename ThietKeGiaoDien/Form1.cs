@@ -35,13 +35,13 @@ namespace ThietKeGiaoDien
         private void btnX_MouseEnter(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Gray;
+            buttonX.BackColor = Color.FromArgb(64, 72, 114);
         }
 
         private void btnX_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.White;
+            buttonX.BackColor = Color.FromArgb(174, 184, 238);
         }
 
         private void btnHangHoa_Click(object sender, EventArgs e)

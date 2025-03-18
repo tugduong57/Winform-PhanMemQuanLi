@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,6 +19,7 @@ namespace ThietKeGiaoDien
         public string maDT_public;
         public string maSP_public;
         public string DVT_public;
+        public string Ghichu_public;
         public decimal SL_Ban = 0;
 
         public FormHoaDonXuat()
@@ -28,7 +30,7 @@ namespace ThietKeGiaoDien
         {
             dgvHoaDonXuat.RowTemplate.Height = 40;
             dgvHoaDonXuat.Rows[0].Height = 40;
-            LoadProductData();
+            //LoadProductData();
 
             // Load dữ liệu khách hàng
             try
@@ -157,9 +159,6 @@ namespace ThietKeGiaoDien
                 return false;
             }
 
-
-
-
             string lenhSQL = "INSERT INTO DoiTac ([Mã đối tác], [Tên đối tác], [Phân loại], [Tuổi], [Địa chỉ], [Số điện thoại])" +
                              " VALUES (@maDoiTac, @tenDoiTac, N'Khách Hàng', @tuoi, @DiaChi, @Sdt)";
             try
@@ -222,14 +221,14 @@ namespace ThietKeGiaoDien
             {
                 foreach (DataGridViewRow row in dgvHoaDonXuat.Rows)
                 {
-                    if (row.Cells["cl_tenSP"].Value == null) continue; // Bỏ qua dòng trống
+                    if (row.Cells["cl_tenSP"].Value == null) continue;
 
                     int soLuong = Convert.ToInt32(row.Cells["cl_soLuong"].Value);
                     decimal donGia = Convert.ToDecimal(row.Cells["cl_Gia"].Value);
                     TongTien += soLuong * donGia;
                 }
-                string lenhSQl = "INSERT INTO HoaDon ([Mã hóa đơn], [Mã đối tác], [Mã người bán], [Ngày tạo], [Loại hóa đơn], [Tổng tiền], [Ghi chú]) " +
-                       "VALUES (@MaHD, @maDoiTac, @MaNguoiBan, GETDATE(), @LoaiHoaDon, @TongTien, @GhiChu)";
+                string lenhSQl = "INSERT INTO HoaDon ([Mã hóa đơn], [Mã đối tác], [Mã người bán], [Ngày tạo], [Loại hóa đơn], [Tổng tiền]) " +
+                       "VALUES (@MaHD, @maDoiTac, @MaNguoiBan, GETDATE(), @LoaiHoaDon, @TongTien)";
                 SqlCommand cmd = new SqlCommand(lenhSQl, BienConnect);
 
                 cmd.Parameters.AddWithValue("@MaHD", maHD);
@@ -238,7 +237,6 @@ namespace ThietKeGiaoDien
                 cmd.Parameters.AddWithValue("@MaNguoiBan", CurrentUser.TaiKhoan);
                 cmd.Parameters.AddWithValue("@LoaiHoaDon", LoaiHoaDon);
                 cmd.Parameters.AddWithValue("@TongTien", TongTien);
-                cmd.Parameters.AddWithValue("@GhiChu", " ");
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Lưu hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -292,6 +290,7 @@ namespace ThietKeGiaoDien
         {
             LuuDoiTac();
             LuuHoaDon();
+            button_Huy_Click(sender, e);
         }
 
 
@@ -305,6 +304,7 @@ namespace ThietKeGiaoDien
                 tb_DiaChi.Text = "";
                 tb_SDT.Text = "";
                 tb_Tuoi.Text = "";
+                tb_GhiChu.Text = " ";
                 dgvHoaDonXuat.Rows.Clear();
             }
         }
@@ -367,6 +367,12 @@ namespace ThietKeGiaoDien
 
                     if (decimal.TryParse(cellSoLuong.Value?.ToString(), out decimal soLuongNhap))
                     {
+                        if (soLuongTonKho <= 0)
+                        {
+                            MessageBox.Show("Trong kho không còn sản phẩm này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            cellSoLuong.Value = 0;
+                            return;
+                        }
                         if (soLuongNhap > soLuongTonKho)
                         {
                             MessageBox.Show($"Sản phẩm này chỉ còn {soLuongTonKho} sản phẩm trong kho.",
@@ -435,52 +441,6 @@ namespace ThietKeGiaoDien
                 e.Handled = true; // Chặn ký tự không hợp lệ
             }
         }
-        Dictionary<string, string> productDict = new Dictionary<string, string>();
-
-        private void LoadProductData()
-        {
-            string query = "SELECT [Mã sản phẩm], [Tên sản phẩm] FROM SanPham";
-            using (SqlCommand cmd = new SqlCommand(query, BienConnect))
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    string maSP = reader["Mã sản phẩm"].ToString();
-                    string tenSP = reader["Tên sản phẩm"].ToString();
-                    productDict[maSP] = tenSP;
-                }
-            }
-        }
-        private void Cbb_TextChanged(object sender, EventArgs e)
-        {
-            ComboBox cbb = sender as ComboBox;
-            if (cbb != null)
-            {
-                string searchText = cbb.Text.Trim();
-
-                // Nếu nhập đúng mã sản phẩm, hiển thị tên sản phẩm
-                if (productDict.ContainsKey(searchText))
-                {
-                    cbb.SelectedItem = searchText; // Giữ nguyên mã sản phẩm
-                }
-                else
-                {
-                    // Lọc danh sách mã sản phẩm bắt đầu với searchText
-                    var matchingItems = productDict.Keys
-                        .Where(maSP => maSP.StartsWith(searchText))
-                        .ToList();
-
-                    // Cập nhật DataSource thay vì Items.Clear()
-                    cbb.DataSource = null;  // Xóa DataSource trước khi cập nhật
-                    cbb.DataSource = matchingItems;
-
-                    // Hiển thị dropdown gợi ý
-                    cbb.DroppedDown = true;
-                    cbb.SelectionStart = cbb.Text.Length;
-                    cbb.SelectionLength = 0;
-                }
-            }
-        }
 
 
         private void dgvHoaDonXuat_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -488,13 +448,13 @@ namespace ThietKeGiaoDien
             int columnIndex = dgvHoaDonXuat.CurrentCell.ColumnIndex;
             if (dgvHoaDonXuat.Columns[columnIndex].Name == "cl_tenSP")
             {
-                if (e.Control is ComboBox cb)
+               if (e.Control is ComboBox cb)
                 {
-                    cb.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cb.DropDownStyle = ComboBoxStyle.DropDown;
                     cb.DropDownHeight = 250; // Giới hạn chiều cao hiển thị
                 }
             }
-
+            
             if (dgvHoaDonXuat.CurrentCell.ColumnIndex == dgvHoaDonXuat.Columns["cl_soLuong"].Index)
             {
                 TextBox txt = e.Control as TextBox;
@@ -505,5 +465,75 @@ namespace ThietKeGiaoDien
                 }
             }
         }
+
+        private void FormHoaDonXuat_MouseEnter(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.FromArgb(64, 72, 114);
+        }
+
+        private void Luu_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.Olive;
+        }
+
+        private void Huy_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.Red;
+        }
+
+        private void dgvHoaDonXuat_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+        }
+
+        //private void dgvHoaDonXuat_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (dgvHoaDonXuat.Columns[e.ColumnIndex].Name == "cl_maSP")
+        //    {
+        //        string maSP = dgvHoaDonXuat.Rows[e.RowIndex].Cells["cl_maSP"].Value?.ToString();
+
+        //        if (!string.IsNullOrEmpty(maSP))
+        //        {
+        //            string tenSP = LayTenSanPham(maSP);
+        //            if (!string.IsNullOrEmpty(tenSP))
+        //            {
+        //                // Gán tên sản phẩm vào ComboBox của cột "Tên SP"
+        //                DataGridViewComboBoxCell cbCell = dgvHoaDonXuat.Rows[e.RowIndex].Cells["cl_tenSP"] as DataGridViewComboBoxCell;
+        //                if (cbCell != null)
+        //                {
+        //                    // Kiểm tra nếu ComboBox chưa có giá trị này thì thêm vào
+        //                    if (!cbCell.Items.Contains(tenSP))
+        //                    {
+        //                        cbCell.Items.Add(tenSP);
+        //                    }
+        //                    cbCell.Value = tenSP; // Gán giá trị cho ComboBox
+        //                }
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Mã sản phẩm không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //            }
+        //        }
+        //    }
+        //}
+        //private string LayTenSanPham(string maSP)
+        //{
+        //    string tenSP = "";
+        //    string lenhSQL = "Select [Tên sản phẩm] from sanpham where [Mã sản phẩm] = @maSP";
+
+        //    SqlCommand cmd = new SqlCommand(lenhSQL, BienConnect);
+
+        //    cmd.Parameters.AddWithValue(maSP, maSP);
+        //    object result = cmd.ExecuteScalar();
+
+        //    if (result != null)
+        //    {
+        //        tenSP = result.ToString();
+        //    }
+        //    return tenSP;
+        //}
     }
 }

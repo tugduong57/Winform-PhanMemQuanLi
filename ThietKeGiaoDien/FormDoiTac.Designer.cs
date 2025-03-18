@@ -52,7 +52,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1426, 51);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1426, 65);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -64,32 +64,38 @@
             // 
             // btnKH
             // 
+            this.btnKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
             this.btnKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKH.Location = new System.Drawing.Point(23, 3);
             this.btnKH.Name = "btnKH";
-            this.btnKH.Size = new System.Drawing.Size(251, 45);
+            this.btnKH.Size = new System.Drawing.Size(252, 59);
             this.btnKH.TabIndex = 0;
             this.btnKH.Text = "Khách Hàng";
-            this.btnKH.UseVisualStyleBackColor = true;
+            this.btnKH.UseVisualStyleBackColor = false;
             this.btnKH.Click += new System.EventHandler(this.btnKH_Click);
+            this.btnKH.MouseEnter += new System.EventHandler(this.FormXX_MouseEnter);
+            this.btnKH.MouseLeave += new System.EventHandler(this.FormXX_MouseLeave);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(369, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(251, 45);
+            this.button2.Size = new System.Drawing.Size(255, 59);
             this.button2.TabIndex = 1;
             this.button2.Text = "Nhà Cung Cấp";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.FormXX_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.FormXX_MouseLeave);
             // 
             // pnl_DoiTac
             // 
             this.pnl_DoiTac.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_DoiTac.Location = new System.Drawing.Point(0, 51);
+            this.pnl_DoiTac.Location = new System.Drawing.Point(0, 65);
             this.pnl_DoiTac.Name = "pnl_DoiTac";
-            this.pnl_DoiTac.Size = new System.Drawing.Size(1426, 802);
+            this.pnl_DoiTac.Size = new System.Drawing.Size(1426, 788);
             this.pnl_DoiTac.TabIndex = 1;
             // 
             // FormDoiTac

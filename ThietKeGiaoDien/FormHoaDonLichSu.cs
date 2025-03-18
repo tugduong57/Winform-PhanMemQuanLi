@@ -76,11 +76,6 @@ namespace ThietKeGiaoDien
             }
         }
 
-        private void btn_Sua_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             if (selectedRowIndex >= 0)

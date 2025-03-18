@@ -50,5 +50,16 @@ namespace ThietKeGiaoDien
             fDT_NCC.Dock = DockStyle.Fill;
             fDT_NCC.Show();
         }
+        private void FormXX_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.FromArgb(255, 196, 164);
+        }
+
+        private void FormXX_MouseEnter(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.FromArgb(64, 72, 114);
+        }
     }
 }

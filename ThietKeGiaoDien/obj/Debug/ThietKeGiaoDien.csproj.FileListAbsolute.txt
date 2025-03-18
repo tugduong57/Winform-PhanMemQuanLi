@@ -37,4 +37,3 @@ D:\project\Winform-PhanMemQuanLi\ThietKeGiaoDien\obj\Debug\ThietKeGiaoDien.FormD
 D:\project\Winform-PhanMemQuanLi\ThietKeGiaoDien\obj\Debug\ThietKeGiaoDien.FormHoaDonLichSu.resources
 D:\project\Winform-PhanMemQuanLi\ThietKeGiaoDien\obj\Debug\ThietKeGiaoDien.FormChiTietHoaDon.resources
 D:\project\Winform-PhanMemQuanLi\ThietKeGiaoDien\obj\Debug\ThietKeGiaoDien.Login.resources
-D:\project\Winform-PhanMemQuanLi\ThietKeGiaoDien\obj\Debug\ThietKeGiaoDien.Form2.resources
