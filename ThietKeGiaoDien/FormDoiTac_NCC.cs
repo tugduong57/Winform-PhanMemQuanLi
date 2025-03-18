@@ -22,6 +22,8 @@ namespace ThietKeGiaoDien
 
         private void FormDoiTac_NCC_Load(object sender, EventArgs e)
         {
+            dgvNCC.RowTemplate.Height = 40;
+            //dgvNCC.Rows[0].Height = 40;
             string lenhSQl = "select * from Doitac where [Phân loại] = N'Nhà cung cấp'";
             SqlDataAdapter ada = new SqlDataAdapter(lenhSQl, bienconnect);
             DataTable dt = new DataTable();

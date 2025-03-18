@@ -64,6 +64,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.Name = "FormChiTietHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChiTietHoaDon";
             this.Load += new System.EventHandler(this.FormChiTietHoaDon_Load);
             this.panel1.ResumeLayout(false);

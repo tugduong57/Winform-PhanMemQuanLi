@@ -29,16 +29,19 @@ namespace ThietKeGiaoDien
 
             bienSQLDataAdapter.Fill(bienDataTable);
 
-            //dgvThongKe.DataSource = bienDataTable;
-            /*
+            dgvThongKe.DataSource = bienDataTable;
+
             foreach (DataGridViewColumn dataGridViewColumn in dgvThongKe.Columns)
             {
                 dataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridViewColumn.MinimumWidth = 50;
             }
             dgvThongKe.Columns[0].MinimumWidth = 20;
-            */
+
         }
+
+
+
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {

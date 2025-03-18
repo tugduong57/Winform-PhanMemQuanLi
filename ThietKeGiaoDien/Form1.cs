@@ -17,25 +17,14 @@ namespace ThietKeGiaoDien
         {
             InitializeComponent();
         }
-        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
+        SqlConnection bienConnect = null;
+        private string ConnectString = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
-
-        public SqlConnection bienConnect;
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             bienConnect = new SqlConnection(ConnectString);
             bienConnect.Open();
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (bienConnect != null && bienConnect.State == ConnectionState.Open)
-            {
-                bienConnect.Close();
-                bienConnect.Dispose();
-            }
         }
 
         // = false khi form đó đã được mở 1 lần
@@ -43,6 +32,17 @@ namespace ThietKeGiaoDien
             fThongKe = true, fBangGia = true, fTaiKhoan = true;
 
         FormHangHoa childHangHoa; 
+        private void btnX_MouseEnter(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.Gray;
+        }
+
+        private void btnX_MouseLeave(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.White;
+        }
 
         private void btnHangHoa_Click(object sender, EventArgs e)
         {
@@ -63,12 +63,13 @@ namespace ThietKeGiaoDien
             if (fDoiTac)
             {
                 childDoiTac = new FormDoiTac();
-                childDoiTac.connOfDoiTac = bienConnect;
+                childDoiTac.connOfDoiTac = bienConnect; 
                 fDoiTac = false; childDoiTac.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childDoiTac);
             childDoiTac.Dock = DockStyle.Fill;
             childDoiTac.Show();
+            childDoiTac.btnKH_Click(sender, e);
         }
 
         FormHoaDon childHoaDon;
@@ -83,10 +84,10 @@ namespace ThietKeGiaoDien
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childHoaDon);
             childHoaDon.Dock = DockStyle.Fill;
             childHoaDon.Show();
+            childHoaDon.button1_Click(sender, e);
         }
 
         FormThongKe childThongKe;
-
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             if (fThongKe)
@@ -101,13 +102,11 @@ namespace ThietKeGiaoDien
         }
         
         FormBangGia childBangGia;
-
         private void btnBangGia_Click(object sender, EventArgs e)
         {
             if (fBangGia)
-            { 
+            {
                 childBangGia = new FormBangGia();
-                childBangGia.connOfBangGia = bienConnect;
                 fBangGia = false; childBangGia.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childBangGia);
@@ -121,24 +120,12 @@ namespace ThietKeGiaoDien
             if (fTaiKhoan)
             {
                 childTaiKhoan = new FormTaiKhoan();
-                childTaiKhoan.connOfTaiKhoan = bienConnect;
+                childTaiKhoan.connOfTaiKhoan = bienConnect; 
                 fTaiKhoan = false; childTaiKhoan.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childTaiKhoan);
             childTaiKhoan.Dock = DockStyle.Fill;
             childTaiKhoan.Show();
-        }
-
-        private void btnX_MouseEnter(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Gray;
-        }
-
-        private void btnX_MouseLeave(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.White;
         }
 
     }

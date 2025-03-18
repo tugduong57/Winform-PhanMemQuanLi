@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ThietKeGiaoDien
 {
-    public partial class FormBangGia : Form
+    public partial class FormDangNhap : Form
     {
-        public FormBangGia()
+        public FormDangNhap()
         {
             InitializeComponent();
         }

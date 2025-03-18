@@ -22,6 +22,8 @@ namespace ThietKeGiaoDien
 
         private void FormDoiTac_KH_Load(object sender, EventArgs e)
         {
+            dgvKhachHang.RowTemplate.Height = 40;
+            //dgvKhachHang.Rows[0].Height = 40;
             string lenhSQL = "select * from DoiTac where [Phân loại] = N'Khách Hàng'";
             SqlDataAdapter ada = new SqlDataAdapter(lenhSQL, bienconnect);
             DataTable dt = new DataTable();

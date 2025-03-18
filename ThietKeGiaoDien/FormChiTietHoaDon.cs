@@ -22,6 +22,7 @@ namespace ThietKeGiaoDien
         }
         private void FormChiTietHoaDon_Load(object sender, EventArgs e)
         {
+            dgvChiTietHoaDon.RowTemplate.Height = 40;
             LoadChiTietHoaDon();
         }
 

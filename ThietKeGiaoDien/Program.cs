@@ -16,8 +16,9 @@ namespace ThietKeGiaoDien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-            //Application.Run(new Form1());
+            Login login = new Login();
+            //new Form1()
+            Application.Run(login);
         }
     }
 }

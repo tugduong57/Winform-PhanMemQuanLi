@@ -22,7 +22,7 @@ namespace ThietKeGiaoDien
             InitializeComponent();
         }
 
-        private void btnKH_Click(object sender, EventArgs e)
+        public void btnKH_Click(object sender, EventArgs e)
         {
             if (fDT_KH == null)
             {

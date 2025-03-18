@@ -18,7 +18,7 @@ namespace ThietKeGiaoDien
             InitializeComponent();
         }
 
-        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
+        string ConnectString = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
         SqlConnection bien_Connect = null;
@@ -27,17 +27,17 @@ namespace ThietKeGiaoDien
         private void Login_Load(object sender, EventArgs e)
         {
             bien_Connect = new SqlConnection(ConnectString);
-            //bien_Connect.Open();
+            bien_Connect.Open();
 
             string lenhTruyVanSQL = "Select [Tài khoản], [Mật khẩu] from NguoiDung";
-            //SqlDataAdapter bienSQLDataAdapter = new SqlDataAdapter(lenhTruyVanSQL, bien_Connect);
+            SqlDataAdapter bienSQLDataAdapter = new SqlDataAdapter(lenhTruyVanSQL, bien_Connect);
 
-            //bienSQLDataAdapter.Fill(bienDataTable_TaiKhoan);
+            bienSQLDataAdapter.Fill(bienDataTable_TaiKhoan);
 
-            this.Hide();
-            Form1 form1 = new Form1();
-            form1.ShowDialog();
-            this.Close();
+            //this.Hide();
+            //Form1 form1 = new Form1();
+            //form1.ShowDialog();
+            //this.Close();
         }
 
         private void btnShowPassword_Click(object sender, EventArgs e)
@@ -74,28 +74,32 @@ namespace ThietKeGiaoDien
         {
             string user = tbUser.Text;
             string password = tbPassword.Text;
+            CurrentUser.TaiKhoan = user;
 
-            foreach(DataRow row in bienDataTable_TaiKhoan.Rows)
-            {
-                if (row["Tài khoản"].ToString() == user && row["Tài khoản"].ToString() != "admin")
-                {
-                    if (row["Mật khẩu"].ToString() == password)
-                    {
-                        this.Hide();
-                        FormTrangChuForNhanVien formTrangChuForNhanVien = new FormTrangChuForNhanVien();
-                        formTrangChuForNhanVien.ShowDialog();
-                        this.Close();
-                    }
-                }
-            }
-            bien_Connect.Close();
-            bien_Connect.Dispose();
+            user = "admin";
+            password = "admin";
+
+            //foreach (DataRow row in bienDataTable_TaiKhoan.Rows)
+            //{
+            //    if (row["Tài khoản"].ToString() == user)
+            //    {
+            //        if (row["Mật khẩu"].ToString() == password)
+            //        {
+            //            this.Hide();
+            //            FormTrangChuForNhanVien formTrangChuForNhanVien = new FormTrangChuForNhanVien();
+            //            formTrangChuForNhanVien.ShowDialog();
+            //            this.Close();
+            //            return;
+            //        }
+            //    }
+            //}
+
             if (user == "admin" && password == "admin")
             {
-                this.Hide();
+                //this.Hide();
                 Form1 form1 = new Form1();
                 form1.ShowDialog();
-                this.Close();
+                //this.Close();
             }
             else
             {
