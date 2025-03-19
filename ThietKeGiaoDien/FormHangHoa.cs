@@ -33,8 +33,10 @@ namespace ThietKeGiaoDien
             cbHang.DataSource = dsTableTheoHang.Tables["HangForComboBox"];
 
             // Dòng lệnh này gọi tới sự kiện cbHang_SelectedIndexChanged
-            cbHang.DisplayMember = "Hãng"; 
+            cbHang.DisplayMember = "Hãng";
 
+            // Kích thước chung cho tất cả các hàng
+            dgvHangHoa.RowTemplate.Height = 35;
             // Đặt kích thước cho từng cột
             dgvHangHoa.Columns["Mã"].Width = 100;
             dgvHangHoa.Columns["Tên sản phẩm"].Width = 330;

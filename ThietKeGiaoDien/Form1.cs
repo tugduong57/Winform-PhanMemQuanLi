@@ -38,14 +38,25 @@ namespace ThietKeGiaoDien
             }
         }
 
+        void resetBackColorOf6Button()
+        {
+            foreach (Button x in tableLayoutPanel1.Controls)
+            {
+                x.BackColor = Color.White;
+            }
+        }
+
+
         // = false khi form đó đã được mở 1 lần
         public bool fHangHoa = true, fDoiTac = true, fHoaDon = true, 
             fThongKe = true, fBangGia = true, fTaiKhoan = true;
 
-        FormHangHoa childHangHoa; 
-
+        FormHangHoa childHangHoa; // = new FormHangHoa(); 
         private void btnHangHoa_Click(object sender, EventArgs e)
         {
+            resetBackColorOf6Button();
+            btnHangHoa.BackColor = Color.FromArgb(220, 220, 220);
+
             if (fHangHoa)
             {
                 childHangHoa = new FormHangHoa();
@@ -57,9 +68,13 @@ namespace ThietKeGiaoDien
             childHangHoa.Show();
         }
 
-        FormDoiTac childDoiTac;
+        FormDoiTac childDoiTac; // = new FormDoiTac();
         private void btnDoiTac_Click(object sender, EventArgs e)
         {
+
+            resetBackColorOf6Button();
+            btnDoiTac.BackColor = Color.FromArgb(220, 220, 220);
+
             if (fDoiTac)
             {
                 childDoiTac = new FormDoiTac();
@@ -71,9 +86,13 @@ namespace ThietKeGiaoDien
             childDoiTac.Show();
         }
 
-        FormHoaDon childHoaDon;
+        FormHoaDon childHoaDon; // = new FormHoaDon();
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
+
+            resetBackColorOf6Button();
+            btnHoaDon.BackColor = Color.FromArgb(220, 220, 220);
+
             if (fHoaDon)
             {
                 childHoaDon = new FormHoaDon();
@@ -85,10 +104,12 @@ namespace ThietKeGiaoDien
             childHoaDon.Show();
         }
 
-        FormThongKe childThongKe;
+        FormThongKe childThongKe; // = new FormThongKe();
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
+            resetBackColorOf6Button();
+            btnThongKe.BackColor = Color.FromArgb(220, 220, 220);
             if (fThongKe)
             {
                 childThongKe = new FormThongKe();
@@ -99,11 +120,13 @@ namespace ThietKeGiaoDien
             childThongKe.Dock = DockStyle.Fill;
             childThongKe.Show();
         }
-        
-        FormBangGia childBangGia;
+
+        FormBangGia childBangGia;// = new FormBangGia();
 
         private void btnBangGia_Click(object sender, EventArgs e)
         {
+            resetBackColorOf6Button();
+            btnBangGia.BackColor = Color.FromArgb(220, 220, 220);
             if (fBangGia)
             { 
                 childBangGia = new FormBangGia();
@@ -118,6 +141,8 @@ namespace ThietKeGiaoDien
         FormTaiKhoan childTaiKhoan;
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
+            resetBackColorOf6Button();
+            btnTaiKhoan.BackColor = Color.FromArgb(220, 220, 220);
             if (fTaiKhoan)
             {
                 childTaiKhoan = new FormTaiKhoan();
@@ -129,16 +154,20 @@ namespace ThietKeGiaoDien
             childTaiKhoan.Show();
         }
 
+
+
         private void btnX_MouseEnter(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Gray;
+            if (buttonX.BackColor != Color.FromArgb(220, 220, 220))
+                buttonX.BackColor = Color.Gainsboro;
         }
 
         private void btnX_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.White;
+            if (buttonX.BackColor != Color.FromArgb(220, 220, 220)) 
+                buttonX.BackColor = Color.White;
         }
 
     }
