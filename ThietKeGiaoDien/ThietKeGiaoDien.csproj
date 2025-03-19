@@ -232,5 +232,8 @@
   <ItemGroup>
     <None Include="Resources\TaiKhoan-removebg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

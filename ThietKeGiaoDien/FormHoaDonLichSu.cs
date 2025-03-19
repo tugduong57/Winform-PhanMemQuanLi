@@ -45,6 +45,7 @@ namespace ThietKeGiaoDien
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgvHDLichSu.DataSource = dt;
+                dgvHDLichSu.Columns["Tổng tiền"].DefaultCellStyle.Format = "N0";
             }
             catch (Exception ex)
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHoaDonXuat));
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,8 +57,10 @@
             this.tb_Tuoi = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tb_GhiChu = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_InHD = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvHoaDonXuat = new System.Windows.Forms.DataGridView();
             this.cl_tenSP = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -67,11 +70,14 @@
             this.cl_soLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pdHoaDon = new System.Drawing.Printing.PrintDocument();
+            this.pddHoaDon = new System.Windows.Forms.PrintPreviewDialog();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonXuat)).BeginInit();
             this.SuspendLayout();
@@ -147,8 +153,8 @@
             this.tableLayoutPanel6.Controls.Add(this.tb_Tuoi, 4, 2);
             this.tableLayoutPanel6.Controls.Add(this.label8, 1, 3);
             this.tableLayoutPanel6.Controls.Add(this.tb_GhiChu, 2, 3);
-            this.tableLayoutPanel6.Controls.Add(this.button2, 4, 3);
             this.tableLayoutPanel6.Controls.Add(this.button1, 3, 3);
+            this.tableLayoutPanel6.Controls.Add(this.panel1, 4, 3);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 61);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -158,7 +164,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1288, 147);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1288, 156);
             this.tableLayoutPanel6.TabIndex = 18;
             // 
             // tableLayoutPanel4
@@ -316,7 +322,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(24, 50);
+            this.label4.Location = new System.Drawing.Point(24, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 29);
             this.label4.TabIndex = 2;
@@ -350,7 +356,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(647, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 45);
+            this.label2.Size = new System.Drawing.Size(154, 48);
             this.label2.TabIndex = 10;
             this.label2.Text = "Số điện thoại";
             // 
@@ -358,7 +364,7 @@
             // 
             this.tb_DiaChi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_DiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_DiaChi.Location = new System.Drawing.Point(224, 53);
+            this.tb_DiaChi.Location = new System.Drawing.Point(224, 56);
             this.tb_DiaChi.Name = "tb_DiaChi";
             this.tb_DiaChi.Size = new System.Drawing.Size(417, 35);
             this.tb_DiaChi.TabIndex = 12;
@@ -377,9 +383,9 @@
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Left;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(647, 50);
+            this.label23.Location = new System.Drawing.Point(647, 53);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(62, 45);
+            this.label23.Size = new System.Drawing.Size(62, 48);
             this.label23.TabIndex = 18;
             this.label23.Text = "Tuổi";
             // 
@@ -387,7 +393,7 @@
             // 
             this.tb_Tuoi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Tuoi.Location = new System.Drawing.Point(847, 53);
+            this.tb_Tuoi.Location = new System.Drawing.Point(847, 56);
             this.tb_Tuoi.Name = "tb_Tuoi";
             this.tb_Tuoi.Size = new System.Drawing.Size(417, 35);
             this.tb_Tuoi.TabIndex = 19;
@@ -396,7 +402,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 95);
+            this.label8.Location = new System.Drawing.Point(24, 101);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 29);
             this.label8.TabIndex = 21;
@@ -406,30 +412,16 @@
             // 
             this.tb_GhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_GhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_GhiChu.Location = new System.Drawing.Point(224, 98);
+            this.tb_GhiChu.Location = new System.Drawing.Point(224, 104);
             this.tb_GhiChu.Name = "tb_GhiChu";
             this.tb_GhiChu.Size = new System.Drawing.Size(417, 35);
             this.tb_GhiChu.TabIndex = 22;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button2.Location = new System.Drawing.Point(847, 98);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 39);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Hủy";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button_Huy_Click);
-            this.button2.MouseEnter += new System.EventHandler(this.FormHoaDonXuat_MouseEnter);
-            this.button2.MouseLeave += new System.EventHandler(this.Huy_MouseLeave);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Olive;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(647, 98);
+            this.button1.Location = new System.Drawing.Point(647, 104);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(171, 39);
             this.button1.TabIndex = 13;
@@ -438,6 +430,43 @@
             this.button1.Click += new System.EventHandler(this.button_Them_Click);
             this.button1.MouseEnter += new System.EventHandler(this.FormHoaDonXuat_MouseEnter);
             this.button1.MouseLeave += new System.EventHandler(this.Luu_MouseLeave);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_InHD);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(847, 104);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(417, 42);
+            this.panel1.TabIndex = 23;
+            // 
+            // btn_InHD
+            // 
+            this.btn_InHD.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_InHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_InHD.Location = new System.Drawing.Point(173, 0);
+            this.btn_InHD.Name = "btn_InHD";
+            this.btn_InHD.Size = new System.Drawing.Size(164, 42);
+            this.btn_InHD.TabIndex = 15;
+            this.btn_InHD.Text = "In";
+            this.btn_InHD.UseVisualStyleBackColor = true;
+            this.btn_InHD.Click += new System.EventHandler(this.btn_InHD_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(173, 42);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Hủy";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button_Huy_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.FormHoaDonXuat_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.Huy_MouseLeave);
             // 
             // tableLayoutPanel3
             // 
@@ -448,13 +477,13 @@
             this.tableLayoutPanel3.Controls.Add(this.dgvHoaDonXuat, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 208);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 217);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1288, 509);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1288, 500);
             this.tableLayoutPanel3.TabIndex = 19;
             // 
             // dgvHoaDonXuat
@@ -474,7 +503,7 @@
             this.dgvHoaDonXuat.Location = new System.Drawing.Point(23, 23);
             this.dgvHoaDonXuat.Name = "dgvHoaDonXuat";
             this.dgvHoaDonXuat.RowHeadersWidth = 51;
-            this.dgvHoaDonXuat.Size = new System.Drawing.Size(1242, 463);
+            this.dgvHoaDonXuat.Size = new System.Drawing.Size(1242, 454);
             this.dgvHoaDonXuat.TabIndex = 0;
             this.dgvHoaDonXuat.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonXuat_CellValueChanged);
             this.dgvHoaDonXuat.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvHoaDonXuat_DataError);
@@ -493,6 +522,7 @@
             this.cl_Hang.HeaderText = "Hãng";
             this.cl_Hang.MinimumWidth = 6;
             this.cl_Hang.Name = "cl_Hang";
+            this.cl_Hang.ReadOnly = true;
             this.cl_Hang.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cl_Hang.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -535,6 +565,20 @@
             this.cl_ThanhTien.Name = "cl_ThanhTien";
             this.cl_ThanhTien.ReadOnly = true;
             // 
+            // pdHoaDon
+            // 
+            this.pdHoaDon.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdHoaDon_PrintPage);
+            // 
+            // pddHoaDon
+            // 
+            this.pddHoaDon.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.pddHoaDon.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.pddHoaDon.ClientSize = new System.Drawing.Size(400, 300);
+            this.pddHoaDon.Enabled = true;
+            this.pddHoaDon.Icon = ((System.Drawing.Icon)(resources.GetObject("pddHoaDon.Icon")));
+            this.pddHoaDon.Name = "pddHoaDon";
+            this.pddHoaDon.Visible = false;
+            // 
             // FormHoaDonXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
@@ -560,6 +604,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonXuat)).EndInit();
             this.ResumeLayout(false);
@@ -600,6 +645,10 @@
         private System.Windows.Forms.DataGridView dgvHoaDonXuat;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_GhiChu;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_InHD;
+        private System.Drawing.Printing.PrintDocument pdHoaDon;
+        private System.Windows.Forms.PrintPreviewDialog pddHoaDon;
         private System.Windows.Forms.DataGridViewComboBoxColumn cl_tenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Hang;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_phanLoai;

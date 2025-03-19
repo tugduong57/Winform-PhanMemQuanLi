@@ -48,6 +48,9 @@ namespace ThietKeGiaoDien
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgvChiTietHoaDon.DataSource = dt;
+                dgvChiTietHoaDon.Columns["Đơn giá"].DefaultCellStyle.Format = "N0";
+                dgvChiTietHoaDon.Columns["Thành tiền"].DefaultCellStyle.Format = "N0";
+                dgvChiTietHoaDon.Columns["Số lượng"].DefaultCellStyle.Format = "N0";
             }
             catch(Exception ex)
             {

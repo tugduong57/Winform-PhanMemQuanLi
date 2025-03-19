@@ -23,10 +23,12 @@ namespace ThietKeGiaoDien
         public int SL_public = 0;
         public decimal TongTien_public = 0;
         public string LoaiHoaDon = "Hóa Đơn Nhập";
+        //private PictureBox pictureBox;
 
         public FormHoaDonNhap()
         {
             InitializeComponent();
+
         }
         private void FormNhap_Load(object sender, EventArgs e)
         {
@@ -476,7 +478,10 @@ namespace ThietKeGiaoDien
                         if (decimal.TryParse(dgvHoaDonNhap.Rows[rowIndex].Cells[5].Value?.ToString(), out decimal giaNhap) &&
                         int.TryParse(dgvHoaDonNhap.Rows[rowIndex].Cells[6].Value?.ToString(), out int soLuong))
                         {
-                            dgvHoaDonNhap.Rows[rowIndex].Cells[7].Value = (giaNhap * soLuong).ToString();
+                            decimal thanhTien = giaNhap * soLuong;
+                            dgvHoaDonNhap.Rows[rowIndex].Cells[5].Value = giaNhap.ToString("N0"); // Giá nhập
+                            dgvHoaDonNhap.Rows[rowIndex].Cells[6].Value = soLuong.ToString("N0"); // Số lượng
+                            dgvHoaDonNhap.Rows[rowIndex].Cells[7].Value = thanhTien.ToString("N0"); // Thành tiền
                         }
                     }
                 }
@@ -512,6 +517,230 @@ namespace ThietKeGiaoDien
         {
             Button buttonX = (Button)sender;
             buttonX.BackColor = Color.Red;
+        }
+
+        // in
+
+        private void btn_InHD_Click(object sender, EventArgs e)
+        {
+            pddHoaDon.Document = pdHoaDon;
+            pddHoaDon.ShowDialog();
+        }
+
+        private void DrawTable(Graphics g, int x, int y)
+        {
+            Font font = new Font("Arial", 12, FontStyle.Regular);
+            Brush brush = Brushes.Black;
+            Pen pen = new Pen(Color.Black, 2); // Bút vẽ bảng
+
+            int rowHeight = 40;
+            int colWidth1 = 50;  // STT
+            int colWidth2 = 175; // Tên sản phẩm
+            int colWidth3 = 100; // Hãng
+            int colWidth4 = 150; // Phân loại
+            int colWidth5 = 75; // Đơn vị tính
+            int colWidth6 = 50; // Số lượng
+            int colWidth7 = 100; // Giá nhập
+            int colWidth8 = 150; // Thành tiền
+
+            int tableWidth = colWidth1 + colWidth2 + colWidth3 + colWidth4 + colWidth5 + colWidth6 + colWidth7 + colWidth8;
+            int tableHeight = rowHeight * 11; // 1 hàng tiêu đề + 10 hàng trống
+
+            g.DrawRectangle(pen, x, y, tableWidth, tableHeight);
+
+            g.DrawString("STT", font, brush, x + 10, y + 5);
+            g.DrawString("Tên sản phẩm", font, brush, x + colWidth1 + 10, y + 5);
+            g.DrawString("Hãng", font, brush, x + colWidth1 + colWidth2 + 10, y + 5);
+            g.DrawString("Phân Loại", font, brush, x + colWidth1 + colWidth2 + colWidth3 + 10, y + 5);
+            g.DrawString("ĐVT", font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + 10, y + 5);
+            g.DrawString("SL", font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + colWidth5 + 10, y + 5);
+            g.DrawString("Giá", font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + colWidth5 + colWidth6 + 10, y + 5);
+            g.DrawString("Thành tiền", font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + colWidth5 + colWidth6 + colWidth7 + 10, y + 5);
+
+            int[] columnPositions = { colWidth1, colWidth2, colWidth3, colWidth4, colWidth5, colWidth6, colWidth7, colWidth8 };
+            int currentX = x;
+            foreach (int width in columnPositions)
+            {
+                currentX += width;
+                g.DrawLine(pen, currentX, y, currentX, y + tableHeight);
+            }
+
+            for (int i = 1; i <= 10; i++) // 10 hàng trống
+            {
+                g.DrawLine(pen, x, y + rowHeight * i, x + tableWidth, y + rowHeight * i);
+            }
+
+            int rowIndex = 1;
+            int currentY = y + rowHeight;
+            TongTien_public = 0;
+
+            foreach (DataGridViewRow row in dgvHoaDonNhap.Rows)
+            {
+                if (!row.IsNewRow) // Bỏ qua hàng trống cuối cùng
+                {
+                    g.DrawString(rowIndex.ToString(), font, brush, x + 10, currentY + 5);
+                    g.DrawString(row.Cells["cl_tenSP"].Value?.ToString() ?? "", font, brush, x + colWidth1 + 10, currentY + 5);
+                    g.DrawString(row.Cells["cl_Hang"].Value?.ToString() ?? "", font, brush, x + colWidth1 + colWidth2 + 10, currentY + 5);
+                    g.DrawString(row.Cells["cl_phanLoai"].Value?.ToString() ?? "", font, brush, x + colWidth1 + colWidth2 + colWidth3 + 10, currentY + 5);
+                    g.DrawString(row.Cells["cl_DVT"].Value?.ToString() ?? "", font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + 10, currentY + 5);
+                    g.DrawString(row.Cells["cl_SoLuong"].Value?.ToString() ?? "", font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + colWidth5 + 10, currentY + 5);
+                    g.DrawString(Convert.ToDecimal(row.Cells["cl_Gia"].Value).ToString("N0"), font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + colWidth5 + colWidth6 + 10, currentY + 5);
+                    g.DrawString(Convert.ToDecimal(row.Cells["cl_thanhTien"].Value).ToString("N0"), font, brush, x + colWidth1 + colWidth2 + colWidth3 + colWidth4 + colWidth5 + colWidth6 + colWidth7 + 10, currentY + 5);
+
+                    string str_thanhTien = Convert.ToDecimal(row.Cells["cl_thanhTien"].Value).ToString("N0");
+                    if (decimal.TryParse(str_thanhTien?.ToString(), out decimal thanhTien))
+                    {
+                        TongTien_public += thanhTien;
+                    }
+                    g.DrawLine(pen, x, currentY + rowHeight, x + tableWidth, currentY + rowHeight);
+                    currentY += rowHeight;
+                    rowIndex++;
+                }
+            }
+        }
+
+
+        private void pdHoaDon_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int x = 150;
+            int y = 20;
+            string tencuahang = "Trung tâm phân phối và pha màu tự động";
+            string diachi = "Địa chỉ: Huyện Thạch Thất, Hà Nội";
+            string phone = "Điện thoại: 0198414235";
+            string stk = "Số tài khoản: ";
+            DateTime now = DateTime.Now;
+            string today = $"Ngày {now.Day} Tháng {now.Month} Năm {now.Year} ";
+
+            string name = "Hoá Đơn Nhập Hàng";
+
+            //lay be rong cua giay in
+            decimal w = pdHoaDon.DefaultPageSettings.PaperSize.Width;
+            string imagePath = @"C:\Users\Pham Quang Anh\Downloads\logo.png";
+            if (System.IO.File.Exists(imagePath)) // Kiểm tra xem file có tồn tại không
+            {
+                Image img = Image.FromFile(imagePath);
+                e.Graphics.DrawImage(img, new Rectangle(20, y, 100, 100));
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy ảnh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //hienthi tencuahang
+            e.Graphics.DrawString(
+                tencuahang.ToUpper(),
+                new Font("Courier New", 19, FontStyle.Bold),
+                Brushes.Black, new Point(x, y)
+                );
+
+            //hienthi diachi
+            e.Graphics.DrawString(
+                diachi,
+                new Font("Courier New", 12, FontStyle.Bold),
+                Brushes.Black, new Point(x + 10, y + 30)
+                );
+
+            //phone
+            e.Graphics.DrawString(
+                phone,
+                new Font("Courier New", 12, FontStyle.Bold),
+                Brushes.Black, new Point(x + 10, y + 60)
+                );
+
+            //stk
+            e.Graphics.DrawString(
+                stk,
+                new Font("Courier New", 12, FontStyle.Bold),
+                Brushes.Black, new Point(x + 10, y + 90)
+                );
+
+            //kengang
+            Pen pen = new Pen(Color.Black, 2);
+            e.Graphics.DrawLine(pen, 20, y + 150, 800, y + 150);
+
+            //-----------------------------------------------------------------------------------------
+            //tenhoadon
+            e.Graphics.DrawString(
+                name.ToUpper(),
+                new Font("Courier New", 20, FontStyle.Bold),
+                Brushes.Black, new Point(x + 100, y + 180)
+                );
+
+            //thoigian inhoadon
+            e.Graphics.DrawString(
+                today,
+                new Font("Courier New", 12, FontStyle.Italic),
+                Brushes.Black, new Point(x + 110, y + 220)
+                );
+
+            //kengang
+            e.Graphics.DrawLine(pen, 20, y + 280, 800, y + 280);
+
+            //---------------------------------------------------------------------------------------------
+
+            //tenkhachhang
+            string tenKH = "Tên nhà cung cấp: " + cbb_NCC.Text;
+            string diachiKH = "Địa chỉ: " + tb_DiaChi.Text;
+            string sdtKH = "Số điện thoại: " + tb_SDT.Text;
+            string tuoiKH = "Tuổi: " + tb_Tuoi.Text;
+            string ghichu_HD = "Ghi chú: " + tb_GhiChu.Text;
+
+            e.Graphics.DrawString(
+                tenKH,
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x - 130, y + 310)
+                );
+            e.Graphics.DrawString(
+                diachiKH,
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x - 130, y + 340)
+                );
+            e.Graphics.DrawString(
+                sdtKH,
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x - 130, y + 370)
+                );
+            e.Graphics.DrawString(
+                tuoiKH,
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x - 130, y + 400)
+                );
+            e.Graphics.DrawString(
+                ghichu_HD,
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x - 130, y + 430)
+                );
+            DrawTable(e.Graphics, x - 140, y + 500);
+            e.Graphics.DrawString(
+                "Tổng tiền: " + TongTien_public.ToString("N0"),
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x + 300, y + 950)
+                );
+
+            //chu ky ncc
+            e.Graphics.DrawString(
+                "Nhà cung cấp",
+                new Font("Courier New", 16, FontStyle.Bold),
+                Brushes.Black, new Point(x - 120, y + 975)
+                );
+            e.Graphics.DrawString(
+                "(Chữ ký(nếu có))",
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x - 120, y + 1000)
+                );
+
+            //chu ky chucuahang
+            e.Graphics.DrawString(
+                "Chủ cửa hàng",
+                new Font("Courier New", 16, FontStyle.Bold),
+                Brushes.Black, new Point(x + 450, y + 975)
+                );
+            e.Graphics.DrawString(
+                "(Chữ ký(nếu có))",
+                new Font("Courier New", 12),
+                Brushes.Black, new Point(x + 450, y + 1000)
+                );
         }
     }
 }
