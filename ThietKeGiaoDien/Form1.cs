@@ -24,48 +24,39 @@ namespace ThietKeGiaoDien
         public SqlConnection bienConnect;
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            bienConnect = new SqlConnection(ConnectString);
-            bienConnect.Open();
+            bienConnect = new SqlConnection(ConnectString); bienConnect.Open();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (bienConnect != null && bienConnect.State == ConnectionState.Open)
             {
-                bienConnect.Close();
-                bienConnect.Dispose();
+                bienConnect.Close(); bienConnect.Dispose();
             }
         }
 
         void resetBackColorOf6Button()
         {
             foreach (Button x in tableLayoutPanel1.Controls)
-            {
                 x.BackColor = Color.White;
-            }
         }
 
-
-        // = false khi form đó đã được mở 1 lần
+        // Các biến kiểm soát (= false khi form đó đã được mở 1 lần)
         public bool fHangHoa = true, fDoiTac = true, fHoaDon = true, 
             fThongKe = true, fBangGia = true, fTaiKhoan = true;
 
-        FormHangHoa childHangHoa; // = new FormHangHoa(); 
+        FormHangHoa childHangHoa; // Tương tự với các Form còn lại
         private void btnHangHoa_Click(object sender, EventArgs e)
         {
-            resetBackColorOf6Button();
-            btnHangHoa.BackColor = Color.FromArgb(220, 220, 220);
+            resetBackColorOf6Button(); btnHangHoa.BackColor = Color.FromArgb(220, 220, 220);
 
             if (fHangHoa)
             {
-                childHangHoa = new FormHangHoa();
-                childHangHoa.connOfHangHoa = bienConnect;
+                childHangHoa = new FormHangHoa(); childHangHoa.connOfHangHoa = bienConnect;
                 fHangHoa = false; childHangHoa.TopLevel = false;
             }
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childHangHoa);
-            childHangHoa.Dock = DockStyle.Fill;
-            childHangHoa.Show();
+            childHangHoa.Dock = DockStyle.Fill; childHangHoa.Show();
         }
 
         FormDoiTac childDoiTac; // = new FormDoiTac();
@@ -153,8 +144,6 @@ namespace ThietKeGiaoDien
             childTaiKhoan.Dock = DockStyle.Fill;
             childTaiKhoan.Show();
         }
-
-
 
         private void btnX_MouseEnter(object sender, EventArgs e)
         {

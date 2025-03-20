@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.lbTongKet2 = new System.Windows.Forms.Label();
             this.lbTongSoHoaDon = new System.Windows.Forms.Label();
             this.lbTongKet1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXemBaoCao = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbTongKet = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,16 +56,16 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chartBaoCao = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lbTenBieuDo = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnNam = new System.Windows.Forms.Button();
-            this.btnThang = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbXemBieuDo = new System.Windows.Forms.Label();
             this.btnNgay = new System.Windows.Forms.Button();
+            this.btnThang = new System.Windows.Forms.Button();
+            this.btnNam = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXuatFile = new System.Windows.Forms.Button();
-            this.chartBaoCao = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,10 +74,10 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBaoCao)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartBaoCao)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -127,7 +126,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.tableLayoutPanel6);
             this.panel1.Controls.Add(this.tableLayoutPanel5);
             this.panel1.Controls.Add(this.tableLayoutPanel4);
@@ -137,13 +135,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(361, 766);
             this.panel1.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(90, 621);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 53);
-            this.textBox1.TabIndex = 4;
             // 
             // tableLayoutPanel6
             // 
@@ -206,7 +197,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel5.Controls.Add(this.btnXemBaoCao, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label3, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lbTongKet, 1, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 284);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -229,18 +220,18 @@
             this.btnXemBaoCao.UseVisualStyleBackColor = true;
             this.btnXemBaoCao.Click += new System.EventHandler(this.btnXemBaoCao_Click);
             // 
-            // label3
+            // lbTongKet
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(53, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 50);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Tổng kết";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbTongKet.AutoSize = true;
+            this.lbTongKet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTongKet.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTongKet.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTongKet.Location = new System.Drawing.Point(53, 70);
+            this.lbTongKet.Name = "lbTongKet";
+            this.lbTongKet.Size = new System.Drawing.Size(255, 50);
+            this.lbTongKet.TabIndex = 1;
+            this.lbTongKet.Text = "Tổng kết";
+            this.lbTongKet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
             // 
@@ -423,6 +414,24 @@
             this.panel2.Size = new System.Drawing.Size(851, 766);
             this.panel2.TabIndex = 4;
             // 
+            // chartBaoCao
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartBaoCao.ChartAreas.Add(chartArea1);
+            this.chartBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chartBaoCao.Legends.Add(legend1);
+            this.chartBaoCao.Location = new System.Drawing.Point(0, 0);
+            this.chartBaoCao.Name = "chartBaoCao";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartBaoCao.Series.Add(series1);
+            this.chartBaoCao.Size = new System.Drawing.Size(851, 499);
+            this.chartBaoCao.TabIndex = 6;
+            this.chartBaoCao.Text = "chart1";
+            this.chartBaoCao.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chartBaoCao_MouseClick);
+            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 3;
@@ -461,7 +470,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Controls.Add(this.label9, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbXemBieuDo, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.btnNgay, 2, 0);
             this.tableLayoutPanel7.Controls.Add(this.btnThang, 3, 0);
             this.tableLayoutPanel7.Controls.Add(this.btnNam, 4, 0);
@@ -474,40 +483,17 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(851, 69);
             this.tableLayoutPanel7.TabIndex = 4;
             // 
-            // btnNam
+            // lbXemBieuDo
             // 
-            this.btnNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNam.Location = new System.Drawing.Point(566, 3);
-            this.btnNam.Name = "btnNam";
-            this.btnNam.Size = new System.Drawing.Size(128, 44);
-            this.btnNam.TabIndex = 5;
-            this.btnNam.Text = "Năm";
-            this.btnNam.UseVisualStyleBackColor = true;
-            this.btnNam.Click += new System.EventHandler(this.btnNam_Click);
-            // 
-            // btnThang
-            // 
-            this.btnThang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThang.Location = new System.Drawing.Point(432, 3);
-            this.btnThang.Name = "btnThang";
-            this.btnThang.Size = new System.Drawing.Size(128, 44);
-            this.btnThang.TabIndex = 4;
-            this.btnThang.Text = "Tháng";
-            this.btnThang.UseVisualStyleBackColor = false;
-            this.btnThang.Click += new System.EventHandler(this.btnThang_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(256, 50);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Xem biểu đồ theo:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbXemBieuDo.AutoSize = true;
+            this.lbXemBieuDo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbXemBieuDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbXemBieuDo.Location = new System.Drawing.Point(28, 0);
+            this.lbXemBieuDo.Name = "lbXemBieuDo";
+            this.lbXemBieuDo.Size = new System.Drawing.Size(256, 50);
+            this.lbXemBieuDo.TabIndex = 0;
+            this.lbXemBieuDo.Text = "Xem biểu đồ theo:";
+            this.lbXemBieuDo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnNgay
             // 
@@ -521,6 +507,29 @@
             this.btnNgay.Text = "Ngày";
             this.btnNgay.UseVisualStyleBackColor = false;
             this.btnNgay.Click += new System.EventHandler(this.btnNgay_Click);
+            // 
+            // btnThang
+            // 
+            this.btnThang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThang.Location = new System.Drawing.Point(432, 3);
+            this.btnThang.Name = "btnThang";
+            this.btnThang.Size = new System.Drawing.Size(128, 44);
+            this.btnThang.TabIndex = 4;
+            this.btnThang.Text = "Tháng";
+            this.btnThang.UseVisualStyleBackColor = false;
+            this.btnThang.Click += new System.EventHandler(this.btnThang_Click);
+            // 
+            // btnNam
+            // 
+            this.btnNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNam.Location = new System.Drawing.Point(566, 3);
+            this.btnNam.Name = "btnNam";
+            this.btnNam.Size = new System.Drawing.Size(128, 44);
+            this.btnNam.TabIndex = 5;
+            this.btnNam.Text = "Năm";
+            this.btnNam.UseVisualStyleBackColor = true;
+            this.btnNam.Click += new System.EventHandler(this.btnNam_Click);
             // 
             // tableLayoutPanel9
             // 
@@ -547,24 +556,6 @@
             this.btnXuatFile.Text = "Xuất file PDF";
             this.btnXuatFile.UseVisualStyleBackColor = true;
             // 
-            // chartBaoCao
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chartBaoCao.ChartAreas.Add(chartArea2);
-            this.chartBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartBaoCao.Legends.Add(legend2);
-            this.chartBaoCao.Location = new System.Drawing.Point(0, 0);
-            this.chartBaoCao.Name = "chartBaoCao";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartBaoCao.Series.Add(series2);
-            this.chartBaoCao.Size = new System.Drawing.Size(851, 499);
-            this.chartBaoCao.TabIndex = 6;
-            this.chartBaoCao.Text = "chart1";
-            this.chartBaoCao.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chartBaoCao_MouseClick);
-            // 
             // FormThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
@@ -581,7 +572,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -591,12 +581,12 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartBaoCao)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartBaoCao)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -623,8 +613,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnXemBaoCao;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbTongSoHoaDon;
         private System.Windows.Forms.Label lbTongKet1;
         private System.Windows.Forms.Label lbTongKet2;
         private System.Windows.Forms.Panel panel2;
@@ -633,11 +621,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Button btnNam;
         private System.Windows.Forms.Button btnThang;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbXemBieuDo;
         private System.Windows.Forms.Button btnNgay;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label lbTenBieuDo;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBaoCao;
+        private System.Windows.Forms.Label lbTongSoHoaDon;
+        private System.Windows.Forms.Label lbTongKet;
     }
 }

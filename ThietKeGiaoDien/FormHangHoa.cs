@@ -19,37 +19,34 @@ namespace ThietKeGiaoDien
             InitializeComponent();
         }
 
-        public SqlConnection connOfHangHoa;
+        public SqlConnection connOfHangHoa; // Nhận conn từ Form chính
 
         DataSet dsTableTheoHang = new DataSet();
         string nameTableNow = "";
 
         private void FormHangHoa_Load(object sender, EventArgs e)
         {
+            // Cho ComboBox "Hãng"
             string lenhTruyVanSQL1 = "SELECT DISTINCT Hãng FROM SanPham;";
             SqlDataAdapter bienSQL_DataAdapter1 = new SqlDataAdapter(lenhTruyVanSQL1, connOfHangHoa);
             bienSQL_DataAdapter1.Fill(dsTableTheoHang, "HangForComboBox");
 
             cbHang.DataSource = dsTableTheoHang.Tables["HangForComboBox"];
+            cbHang.DisplayMember = "Hãng"; // Gọi tới seletedChange -> fill dataSource cho dataGridView
 
-            // Dòng lệnh này gọi tới sự kiện cbHang_SelectedIndexChanged
-            cbHang.DisplayMember = "Hãng";
-
-            // Kích thước chung cho tất cả các hàng
-            dgvHangHoa.RowTemplate.Height = 35;
-            // Đặt kích thước cho từng cột
-            dgvHangHoa.Columns["Mã"].Width = 100;
-            dgvHangHoa.Columns["Tên sản phẩm"].Width = 330;
-            dgvHangHoa.Columns["Phân loại"].Width = 150;
-            dgvHangHoa.Columns["ĐVT"].Width = 90;
-            dgvHangHoa.Columns["SL"].Width = 50;
-            dgvHangHoa.Columns["Đơn giá"].Width = 125;
-            dgvHangHoa.Columns["Đơn giá"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvHangHoa.Columns["Ghi chú"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
+            // Các cột trừ "Ghi chú" là ReadOnly
             foreach (DataGridViewColumn col in dgvHangHoa.Columns)
                 col.ReadOnly = true;
             dgvHangHoa.Columns["Ghi chú"].ReadOnly = false;
+
+            // Kích thước
+            dgvHangHoa.RowTemplate.Height = 35;
+
+            dgvHangHoa.Columns["Mã"].Width = 100;           dgvHangHoa.Columns["Tên sản phẩm"].Width = 330;
+            dgvHangHoa.Columns["Phân loại"].Width = 150;    dgvHangHoa.Columns["ĐVT"].Width = 90;
+            dgvHangHoa.Columns["SL"].Width = 50;            dgvHangHoa.Columns["Đơn giá"].Width = 125;
+            dgvHangHoa.Columns["Đơn giá"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvHangHoa.Columns["Ghi chú"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         // Hàm TextChanged, lọc dataTable khi nội dung thay đổi
@@ -58,14 +55,13 @@ namespace ThietKeGiaoDien
             string filterText = tbSearch.Text;
             if (string.IsNullOrWhiteSpace(filterText))
             {
-                // reset DefaultView về ""
                 dsTableTheoHang.Tables[nameTableNow].DefaultView.RowFilter = "";
                 dgvHangHoa.DataSource = dsTableTheoHang.Tables[nameTableNow];
                 dgvHangHoa.Refresh();
                 return;
             }
-
-            // Dùng DataView để lọc
+            // Dùng DataView để lọc  
+            // string filterText = tbSearch.Text;
             dsTableTheoHang.Tables[nameTableNow].DefaultView.RowFilter =
                $"Mã LIKE '%{filterText}%' OR " +
                $"[Tên sản phẩm] LIKE '%{filterText}%' OR " +
@@ -74,6 +70,7 @@ namespace ThietKeGiaoDien
                $"CONVERT(SL, 'System.String') LIKE '%{filterText}%' OR " +
                $"CONVERT([Đơn giá], 'System.String') LIKE '%{filterText}%' OR " +
                $"[Ghi chú] LIKE '%{filterText}%'";
+            // dsTableTheoHang là 1 DataSet
 
         }
 
@@ -83,7 +80,7 @@ namespace ThietKeGiaoDien
             //cbHang.Text = "Lệnh này được gọi trong Form_Load";
             string name_Hang = "Hang_" + cbHang.Text;
             if (dsTableTheoHang.Tables.Contains(name_Hang))
-            {
+            {   // dsTableTheoHang là 1 DataSet
                 dgvHangHoa.DataSource = dsTableTheoHang.Tables[name_Hang];
                 nameTableNow = name_Hang;
             }
@@ -92,22 +89,18 @@ namespace ThietKeGiaoDien
                 string lenhTruyVanSQL = 
                     @"
                 SELECT 
-                    SanPham.[Mã sản phẩm] AS Mã, 
-                    SanPham.[Tên sản phẩm],  
-                    SanPham.[Phân loại], 
-                    dvtSanPham.[Đơn vị tính] AS ĐVT, 
+                    SanPham.[Mã sản phẩm] AS Mã, SanPham.[Tên sản phẩm],  
+                    SanPham.[Phân loại], dvtSanPham.[Đơn vị tính] AS ĐVT, 
                     dvtSanPham.[Số lượng] AS SL, 
-                    Format(dvtSanPham.[Đơn giá], 'N0') AS [Đơn giá],
-                    dvtSanPham.[Ghi chú] 
+                    Format(dvtSanPham.[Đơn giá], 'N0') AS [Đơn giá], dvtSanPham.[Ghi chú] 
                 FROM SanPham " +
-                "INNER JOIN dvtSanPham ON " +
-                    "SanPham.[Mã sản phẩm] = dvtSanPham.[Mã sản phẩm]" +
-                $"WHERE SanPham.Hãng LIKE N'%{cbHang.Text}%'";
+                "INNER JOIN dvtSanPham ON SanPham.[Mã sản phẩm] = dvtSanPham.[Mã sản phẩm]" +
+                $"WHERE SanPham.Hãng LIKE N'%{cbHang.Text}%';";
 
                 SqlDataAdapter bienSQL_DataAdapter = new SqlDataAdapter(lenhTruyVanSQL, connOfHangHoa);
                 bienSQL_DataAdapter.Fill(dsTableTheoHang, name_Hang);
                 dgvHangHoa.DataSource = dsTableTheoHang.Tables[name_Hang];
-                nameTableNow = name_Hang;
+                nameTableNow = name_Hang; 
             }
         }
 
@@ -124,19 +117,18 @@ namespace ThietKeGiaoDien
 
         // Hàm được gọi khi ô trong "Ghi chú" được sửa;
         // dùng để cập nhật lại cơ sở dữ liệu
+
         private void dgvHangHoa_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+
+            DataGridViewRow currentRow = dgvHangHoa.Rows[e.RowIndex];
+
             //int columnIndex_GhiChu = dgvHangHoa.Columns["Ghi chú"].Index;
-            string noidungDaNhap = dgvHangHoa.Rows[e.RowIndex].Cells[dgvHangHoa.Columns["Ghi chú"].Index].Value.ToString();
-            string MaSanPham = dgvHangHoa.Rows[e.RowIndex].Cells[dgvHangHoa.Columns["Mã"].Index].Value.ToString();
-            string DonViTinh = dgvHangHoa.Rows[e.RowIndex].Cells[dgvHangHoa.Columns["ĐVT"].Index].Value.ToString();
+            string noidungDaNhap= currentRow.Cells[dgvHangHoa.Columns["Ghi chú"].Index].Value.ToString();
+            string MaSanPham    = currentRow.Cells[dgvHangHoa.Columns["Mã"].Index].Value.ToString();
+            string DonViTinh    = currentRow.Cells[dgvHangHoa.Columns["ĐVT"].Index].Value.ToString();
 
-            //UPDATE ten_bang
-            //SET ten_cot1 = gia_tri1, ten_cot2 = gia_tri2, ...
-            //WHERE dieu_kien;
-
-            string LenhSQL = "UPDATE dvtSanPham SET [Ghi chú] = " +
-                            $"'{noidungDaNhap}' " +
+            string LenhSQL = "UPDATE dvtSanPham SET [Ghi chú] = " + $"'{noidungDaNhap}' " +
                             $"WHERE [Mã sản phẩm] = '{MaSanPham}' AND [Đơn vị tính] = '{DonViTinh}';";
 
             SqlCommand cmd = new SqlCommand(LenhSQL, connOfHangHoa);
