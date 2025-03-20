@@ -109,7 +109,7 @@ def C_database():
 				[Mã đối tác] varchar(10) not null,
 				[Mã người bán] varchar(20) not null,
 				[Ngày tạo] datetime not null,
-				[Loại hóa đơn] nvarchar(5) not null,
+				[Loại hóa đơn] nvarchar(20) not null,
 				[Tổng tiền] decimal(18,2) not null,
 				[Ghi chú] nvarchar(MAX),
 				CONSTRAINT FK_HoaDon_DoiTac FOREIGN KEY ([Mã đối tác])
