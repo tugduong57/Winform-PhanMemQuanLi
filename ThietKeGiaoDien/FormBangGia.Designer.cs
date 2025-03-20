@@ -84,7 +84,7 @@
             "..."});
             this.cbHang.Location = new System.Drawing.Point(323, 28);
             this.cbHang.Name = "cbHang";
-            this.cbHang.Size = new System.Drawing.Size(294, 44);
+            this.cbHang.Size = new System.Drawing.Size(294, 37);
             this.cbHang.TabIndex = 1;
             this.cbHang.SelectedIndexChanged += new System.EventHandler(this.cbHang_SelectedIndexChanged);
             // 
@@ -133,7 +133,7 @@
             // 
             // FormBangGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 853);
             this.Controls.Add(this.tableLayoutPanel2);

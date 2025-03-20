@@ -22,13 +22,15 @@ namespace ThietKeGiaoDien
 
         private void FormDoiTac_KH_Load(object sender, EventArgs e)
         {
+            dgvKhachHang.RowTemplate.Height = 40;
             string lenhSQL = "select * from DoiTac where [Phân loại] = N'Khách Hàng'";
             SqlDataAdapter ada = new SqlDataAdapter(lenhSQL, bienconnect);
             DataTable dt = new DataTable();
             ada.Fill(dt);
             dgvKhachHang.DataSource = dt;
         }
-        private string GenerateNewMaDoiTac()
+
+        private string TaoMaDoiTac()
         {
             string newMaDoiTac = "DT01";
 
@@ -37,7 +39,8 @@ namespace ThietKeGiaoDien
                 if (bienconnect.State == ConnectionState.Closed)
                     bienconnect.Open();
 
-                string query = "SELECT MAX(CAST(SUBSTRING([Mã Đối Tác], 3, LEN([Mã Đối Tác]) - 2) AS INT)) FROM DoiTac";
+                string query = "SELECT MAX(CAST(SUBSTRING([Mã Đối Tác], 3, LEN([Mã Đối Tác]) - 2) AS INT)) " +
+                    "FROM DoiTac";
                 SqlCommand cmd = new SqlCommand(query, bienconnect);
                 object result = cmd.ExecuteScalar();
 
@@ -72,7 +75,7 @@ namespace ThietKeGiaoDien
                 return;
             }
 
-            string maDoiTac = GenerateNewMaDoiTac();
+            string maDoiTac = TaoMaDoiTac();
             string lenhSQL = "INSERT INTO DoiTac ([Mã đối tác], [Tên đối tác], [Phân loại], [Tuổi], [Địa chỉ], [Số điện thoại], [Ghi chú])" +
                              " VALUES (@maDoiTac, @tenDoiTac, N'Khách Hàng', @tuoi, @DiaChi, @Sdt, @ghiChu)";
 
@@ -186,7 +189,7 @@ namespace ThietKeGiaoDien
             string maDoiTac = maDT;
             if (string.IsNullOrEmpty(maDoiTac))
             {
-                MessageBox.Show("Vui lòng chọn đối tác cần sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn đối tác cần xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

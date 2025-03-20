@@ -54,7 +54,7 @@ namespace ThietKeGiaoDien
         void resetCBnhanVien()
         {
             string lenhTruyVanSQL3 = "SELECT [Tài khoản], [Tên người dùng] FROM NguoiDung;";
-            
+
             bienSQL_DataAdapter = new SqlDataAdapter(lenhTruyVanSQL3, connOfThongKe);
             dtForcbNhanVien = new DataTable();
             bienSQL_DataAdapter.Fill(dtForcbNhanVien);
@@ -81,12 +81,12 @@ namespace ThietKeGiaoDien
             DangCapNhat = true;
 
             // Hide các phần giao diện còn lại
-            lbTongKet.Text = ""; lbTongSoHoaDon.Text = ""; 
+            lbTongKet.Text = ""; lbTongSoHoaDon.Text = "";
             lbTongKet1.Text = ""; lbTongKet2.Text = "";
             lbXemBieuDo.Text = "";
             btnNgay.Hide(); btnThang.Hide(); btnNam.Hide();
 
-            string conn = "Data Source=DESKTOP-2TGO6QK" +
+            string conn = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
 
@@ -100,12 +100,12 @@ namespace ThietKeGiaoDien
             string lenhTruyVanSQL0 = "SELECT MIN([Ngày tạo]) FROM HoaDon;";
             bienSQL_DataAdapter = new SqlDataAdapter(lenhTruyVanSQL0, connOfThongKe);
             DataTable minDate = new DataTable();
-            bienSQL_DataAdapter.Fill(minDate); 
+            bienSQL_DataAdapter.Fill(minDate);
 
             if (minDate.Rows.Count > 0 && minDate.Rows[0][0] != DBNull.Value)
             {
                 DateTime minOfDate = Convert.ToDateTime(minDate.Rows[0][0]);
-                dtpDateStart.MinDate = minOfDate;       dtpDateStart.Value = minOfDate;
+                dtpDateStart.MinDate = minOfDate; dtpDateStart.Value = minOfDate;
                 dtpDateEnd.MinDate = minOfDate;
                 NgayBatDau = minOfDate.Date.ToString("yyyy-MM-dd");
             }
@@ -114,7 +114,7 @@ namespace ThietKeGiaoDien
                 dtpDateStart.MinDate = DateTime.Today; dtpDateEnd.MinDate = DateTime.Today;
                 NgayBatDau = DateTime.Today.Date.ToString("yyyy-MM-dd");
             }
-            dtpDateStart.MaxDate = DateTime.Today;      dtpDateEnd.MaxDate = DateTime.Today;
+            dtpDateStart.MaxDate = DateTime.Today; dtpDateEnd.MaxDate = DateTime.Today;
             NgayKetThuc = DateTime.Today.Date.ToString("yyyy-MM-dd");
 
 
@@ -126,7 +126,7 @@ namespace ThietKeGiaoDien
             // Thêm các lựa chọn "Nhóm Khách hàng", "Nhóm Nhà cung cấp"
             DataRow row = dtForcbDoiTac.NewRow();
             row = dtForcbDoiTac.NewRow();
-            row["Tên đối tác"] = "Khách hàng"; row["Mã đối tác"] = "KH"; 
+            row["Tên đối tác"] = "Khách hàng"; row["Mã đối tác"] = "KH";
             dtForcbDoiTac.Rows.InsertAt(row, 0);
             row = dtForcbDoiTac.NewRow();
             row["Tên đối tác"] = "Nhà cung cấp"; row["Mã đối tác"] = "NCC";
@@ -211,7 +211,7 @@ namespace ThietKeGiaoDien
                 cbNhanVien.DataSource = dtForcbNhanVien;
                 cbNhanVien.DisplayMember = "Tên người dùng";
                 cbNhanVien.ValueMember = "Tài khoản";
-                }
+            }
 
             // Nếu Đối tác được chọn là Nhà cung cấp (cụ thể)
             if (phanLoaiDoiTac == "Nhà cung cấp")
@@ -265,7 +265,7 @@ namespace ThietKeGiaoDien
                  JOIN HoaDon hd ON nd.[Tài khoản] = hd.[Mã người bán]
                  JOIN ChiTietHoaDon cthd ON hd.[Mã hóa đơn] = cthd.[Mã hóa đơn]
                  JOIN SanPham sp ON cthd.[Mã sản phẩm] = sp.[Mã sản phẩm] " +
-                 $"WHERE hd.[Mã đối tác] = '{maDoiTacSelecting}' " + 
+                 $"WHERE hd.[Mã đối tác] = '{maDoiTacSelecting}' " +
                  $"AND sp.[Phân loại] = N'{PhanLoaiDangChon}' AND " +
                  $"hd.[Ngày tạo] >= '{NgayBatDau}' AND hd.[Ngày tạo] <= '{NgayKetThuc}'";
 
@@ -299,7 +299,7 @@ namespace ThietKeGiaoDien
             {
                 resetCBphanLoai(); // Phân loại là tất cả các loại sản phẩm
                 // Nhân viên: Quản lí, tắt chỉnh sửa
-                cbNhanVien.SelectedIndex = 2;cbNhanVien.Enabled = false; 
+                cbNhanVien.SelectedIndex = 2; cbNhanVien.Enabled = false;
             }
             // Nếu là Nhóm Khách hàng
             else if (DoiTacDangChon == "Khách hàng")
@@ -341,7 +341,7 @@ namespace ThietKeGiaoDien
                     resetCBnhanVien();
                 else if (maDoiTacDangChon != "NCC")
                     // Nhân viên: được reset theo Đối tác (cụ thể)
-                    LocCBNhanVienTheoDoiTac(LoaiDoiTacSelecting, maDoiTacSelecting);      
+                    LocCBNhanVienTheoDoiTac(LoaiDoiTacSelecting, maDoiTacSelecting);
             }
             else // 1 loại sản phẩm cụ thể
             {
@@ -378,7 +378,7 @@ namespace ThietKeGiaoDien
             btnNgay.BackColor = Color.FromArgb(224, 224, 224);
             btnThang.BackColor = Color.FromArgb(192, 255, 255);
             btnNam.BackColor = Color.FromArgb(224, 224, 224);
-            
+
             chartBaoCao.Series.Clear();
             chartBaoCao.Series.Add(seriesThang);
             lbTenBieuDo.Text = "Biểu đồ thống kê theo Tháng";
@@ -492,7 +492,7 @@ namespace ThietKeGiaoDien
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(lenhSQL, connOfThongKe);
                 dataHoaDonFiltered = new DataTable(); dataAdapter.Fill(dataHoaDonFiltered);
-                
+
                 // CHECK: textBox1.Text = "ĐT: " + maDoiTacSelected + " NV: " + maNhanVienSelected + " PL: " + phanLoaiSelected + "\nLenhSQL:" + lenhSQL;
             }
         }
@@ -527,7 +527,7 @@ namespace ThietKeGiaoDien
 
             for (int i = 0; i < dataHoaDonFiltered.Rows.Count; i++)
                 tongTien += Convert.ToDecimal(dataHoaDonFiltered.Rows[i]["Tổng tiền"]);
-            
+
             if (maDoiTacSelected == "KH" || maDoiTacSelected == "Khách hàng")
                 lbTongKet1.Text = "Doanh thu: " + tongTien.ToString("N0") + "đ";
             else if (maDoiTacSelected == "NCC" || maDoiTacSelected == "Nhà cung cấp")
@@ -585,11 +585,11 @@ namespace ThietKeGiaoDien
 
             // Thiết lập biểu đồ
 
-                // Tắt lưới
+            // Tắt lưới
             chartBaoCao.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
             chartBaoCao.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
 
-                // Format Trục Y
+            // Format Trục Y
             chartBaoCao.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
 
             // Ngày

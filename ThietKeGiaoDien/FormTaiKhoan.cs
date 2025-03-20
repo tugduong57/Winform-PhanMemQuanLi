@@ -27,6 +27,7 @@ namespace ThietKeGiaoDien
             ada.Fill(dt);
             dgvTaiKhoan.DataSource = dt;
         }
+
         private void ClearFields()
         {
             tb_GhiChu.Text = "";

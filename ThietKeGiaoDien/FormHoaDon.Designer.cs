@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Xuat = new System.Windows.Forms.Button();
+            this.btn_LichSu = new System.Windows.Forms.Button();
+            this.btn_Nhap = new System.Windows.Forms.Button();
             this.pnl_hoadon = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -40,15 +40,15 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 7;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.83333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.08581F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.13312F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0008F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.93023F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 3, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.87562F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.68657F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.87562F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.68657F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.87562F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.Controls.Add(this.btn_Xuat, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btn_LichSu, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Nhap, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -56,55 +56,67 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1288, 61);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1032, 72);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // button1
+            // btn_Xuat
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(23, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(229, 45);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Xuất";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Xuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btn_Xuat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Xuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Xuat.Location = new System.Drawing.Point(23, 8);
+            this.btn_Xuat.Name = "btn_Xuat";
+            this.btn_Xuat.Size = new System.Drawing.Size(239, 56);
+            this.btn_Xuat.TabIndex = 0;
+            this.btn_Xuat.Text = "Xuất";
+            this.btn_Xuat.UseVisualStyleBackColor = false;
+            this.btn_Xuat.Click += new System.EventHandler(this.btn_Xuat_Click);
+            this.btn_Xuat.MouseEnter += new System.EventHandler(this.FormXX_MouseEnter);
+            this.btn_Xuat.MouseLeave += new System.EventHandler(this.FormXX_MouseLeave);
             // 
-            // button3
+            // btn_LichSu
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(987, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(229, 45);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Lịch sử";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_LichSu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btn_LichSu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_LichSu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LichSu.Location = new System.Drawing.Point(761, 8);
+            this.btn_LichSu.Name = "btn_LichSu";
+            this.btn_LichSu.Size = new System.Drawing.Size(239, 56);
+            this.btn_LichSu.TabIndex = 2;
+            this.btn_LichSu.Text = "Lịch sử";
+            this.btn_LichSu.UseVisualStyleBackColor = false;
+            this.btn_LichSu.Click += new System.EventHandler(this.btn_LichSu_Click);
+            this.btn_LichSu.MouseEnter += new System.EventHandler(this.FormXX_MouseEnter);
+            this.btn_LichSu.MouseLeave += new System.EventHandler(this.FormXX_MouseLeave);
             // 
-            // button2
+            // btn_Nhap
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(510, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(229, 45);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Nhập";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Nhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btn_Nhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Nhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Nhap.Location = new System.Drawing.Point(392, 8);
+            this.btn_Nhap.Name = "btn_Nhap";
+            this.btn_Nhap.Size = new System.Drawing.Size(239, 56);
+            this.btn_Nhap.TabIndex = 1;
+            this.btn_Nhap.Text = "Nhập";
+            this.btn_Nhap.UseVisualStyleBackColor = false;
+            this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
+            this.btn_Nhap.MouseEnter += new System.EventHandler(this.FormXX_MouseEnter);
+            this.btn_Nhap.MouseLeave += new System.EventHandler(this.FormXX_MouseLeave);
             // 
             // pnl_hoadon
             // 
             this.pnl_hoadon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_hoadon.Location = new System.Drawing.Point(0, 61);
+            this.pnl_hoadon.Location = new System.Drawing.Point(0, 72);
             this.pnl_hoadon.Name = "pnl_hoadon";
-            this.pnl_hoadon.Size = new System.Drawing.Size(1288, 792);
+            this.pnl_hoadon.Size = new System.Drawing.Size(1032, 674);
             this.pnl_hoadon.TabIndex = 1;
             // 
             // FormHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 853);
+            this.ClientSize = new System.Drawing.Size(1032, 746);
             this.Controls.Add(this.pnl_hoadon);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,9 +132,9 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Xuat;
+        private System.Windows.Forms.Button btn_LichSu;
+        private System.Windows.Forms.Button btn_Nhap;
         private System.Windows.Forms.Panel pnl_hoadon;
     }
 }

@@ -42,9 +42,9 @@ namespace ThietKeGiaoDien
             // Kích thước
             dgvHangHoa.RowTemplate.Height = 35;
 
-            dgvHangHoa.Columns["Mã"].Width = 100;           dgvHangHoa.Columns["Tên sản phẩm"].Width = 330;
-            dgvHangHoa.Columns["Phân loại"].Width = 150;    dgvHangHoa.Columns["ĐVT"].Width = 90;
-            dgvHangHoa.Columns["SL"].Width = 50;            dgvHangHoa.Columns["Đơn giá"].Width = 125;
+            dgvHangHoa.Columns["Mã"].Width = 100; dgvHangHoa.Columns["Tên sản phẩm"].Width = 330;
+            dgvHangHoa.Columns["Phân loại"].Width = 150; dgvHangHoa.Columns["ĐVT"].Width = 90;
+            dgvHangHoa.Columns["SL"].Width = 50; dgvHangHoa.Columns["Đơn giá"].Width = 125;
             dgvHangHoa.Columns["Đơn giá"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvHangHoa.Columns["Ghi chú"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
@@ -86,7 +86,7 @@ namespace ThietKeGiaoDien
             }
             else
             {
-                string lenhTruyVanSQL = 
+                string lenhTruyVanSQL =
                     @"
                 SELECT 
                     SanPham.[Mã sản phẩm] AS Mã, SanPham.[Tên sản phẩm],  
@@ -100,7 +100,7 @@ namespace ThietKeGiaoDien
                 SqlDataAdapter bienSQL_DataAdapter = new SqlDataAdapter(lenhTruyVanSQL, connOfHangHoa);
                 bienSQL_DataAdapter.Fill(dsTableTheoHang, name_Hang);
                 dgvHangHoa.DataSource = dsTableTheoHang.Tables[name_Hang];
-                nameTableNow = name_Hang; 
+                nameTableNow = name_Hang;
             }
         }
 
@@ -124,9 +124,9 @@ namespace ThietKeGiaoDien
             DataGridViewRow currentRow = dgvHangHoa.Rows[e.RowIndex];
 
             //int columnIndex_GhiChu = dgvHangHoa.Columns["Ghi chú"].Index;
-            string noidungDaNhap= currentRow.Cells[dgvHangHoa.Columns["Ghi chú"].Index].Value.ToString();
-            string MaSanPham    = currentRow.Cells[dgvHangHoa.Columns["Mã"].Index].Value.ToString();
-            string DonViTinh    = currentRow.Cells[dgvHangHoa.Columns["ĐVT"].Index].Value.ToString();
+            string noidungDaNhap = currentRow.Cells[dgvHangHoa.Columns["Ghi chú"].Index].Value.ToString();
+            string MaSanPham = currentRow.Cells[dgvHangHoa.Columns["Mã"].Index].Value.ToString();
+            string DonViTinh = currentRow.Cells[dgvHangHoa.Columns["ĐVT"].Index].Value.ToString();
 
             string LenhSQL = "UPDATE dvtSanPham SET [Ghi chú] = " + $"'{noidungDaNhap}' " +
                             $"WHERE [Mã sản phẩm] = '{MaSanPham}' AND [Đơn vị tính] = '{DonViTinh}';";

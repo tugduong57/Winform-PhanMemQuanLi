@@ -86,9 +86,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(3, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1224, 69);
+            this.label1.Size = new System.Drawing.Size(1224, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "BÁO CÁO THỐNG KÊ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -303,7 +303,7 @@
             this.dtpDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateStart.Location = new System.Drawing.Point(160, 3);
             this.dtpDateStart.Name = "dtpDateStart";
-            this.dtpDateStart.Size = new System.Drawing.Size(198, 38);
+            this.dtpDateStart.Size = new System.Drawing.Size(198, 32);
             this.dtpDateStart.TabIndex = 5;
             this.dtpDateStart.ValueChanged += new System.EventHandler(this.dtpDateStart_ValueChanged);
             // 
@@ -314,7 +314,7 @@
             this.dtpDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateEnd.Location = new System.Drawing.Point(160, 49);
             this.dtpDateEnd.Name = "dtpDateEnd";
-            this.dtpDateEnd.Size = new System.Drawing.Size(198, 38);
+            this.dtpDateEnd.Size = new System.Drawing.Size(198, 32);
             this.dtpDateEnd.TabIndex = 6;
             this.dtpDateEnd.ValueChanged += new System.EventHandler(this.dtpDateEnd_ValueChanged);
             // 
@@ -325,7 +325,7 @@
             this.cbNhanVien.FormattingEnabled = true;
             this.cbNhanVien.Location = new System.Drawing.Point(160, 187);
             this.cbNhanVien.Name = "cbNhanVien";
-            this.cbNhanVien.Size = new System.Drawing.Size(198, 39);
+            this.cbNhanVien.Size = new System.Drawing.Size(198, 34);
             this.cbNhanVien.TabIndex = 9;
             this.cbNhanVien.SelectedIndexChanged += new System.EventHandler(this.cbNhanVien_SelectedIndexChanged);
             // 
@@ -360,7 +360,7 @@
             this.cbDoiTac.FormattingEnabled = true;
             this.cbDoiTac.Location = new System.Drawing.Point(160, 95);
             this.cbDoiTac.Name = "cbDoiTac";
-            this.cbDoiTac.Size = new System.Drawing.Size(198, 39);
+            this.cbDoiTac.Size = new System.Drawing.Size(198, 34);
             this.cbDoiTac.TabIndex = 8;
             this.cbDoiTac.SelectedIndexChanged += new System.EventHandler(this.cbDoiTac_SelectedIndexChanged);
             // 
@@ -371,7 +371,7 @@
             this.cbPhanLoai.FormattingEnabled = true;
             this.cbPhanLoai.Location = new System.Drawing.Point(160, 141);
             this.cbPhanLoai.Name = "cbPhanLoai";
-            this.cbPhanLoai.Size = new System.Drawing.Size(198, 39);
+            this.cbPhanLoai.Size = new System.Drawing.Size(198, 34);
             this.cbPhanLoai.TabIndex = 7;
             this.cbPhanLoai.SelectedIndexChanged += new System.EventHandler(this.cbPhanLoai_SelectedIndexChanged);
             // 
@@ -490,7 +490,7 @@
             this.lbXemBieuDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbXemBieuDo.Location = new System.Drawing.Point(28, 0);
             this.lbXemBieuDo.Name = "lbXemBieuDo";
-            this.lbXemBieuDo.Size = new System.Drawing.Size(256, 50);
+            this.lbXemBieuDo.Size = new System.Drawing.Size(210, 50);
             this.lbXemBieuDo.TabIndex = 0;
             this.lbXemBieuDo.Text = "Xem biểu đồ theo:";
             this.lbXemBieuDo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -558,7 +558,7 @@
             // 
             // FormThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 853);
             this.Controls.Add(this.tableLayoutPanel1);

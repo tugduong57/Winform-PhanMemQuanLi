@@ -17,15 +17,15 @@ namespace ThietKeGiaoDien
         {
             InitializeComponent();
         }
-        
-        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
+
+        string ConnectString = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
-        
+
         SqlConnection bien_Connect = null;
-        
+
         DataTable bienDataTable_TaiKhoan = new DataTable();
-        
+
         private void Login_Load(object sender, EventArgs e)
         {
             bien_Connect = new SqlConnection(ConnectString);
@@ -43,7 +43,7 @@ namespace ThietKeGiaoDien
         {
             if (tbPassword.UseSystemPasswordChar)
             {
-                tbPassword.UseSystemPasswordChar = false; 
+                tbPassword.UseSystemPasswordChar = false;
                 btnShowPassword.Text = "👁️";
             }
             else
@@ -78,7 +78,7 @@ namespace ThietKeGiaoDien
         {
             string user = tbUser.Text; string password = tbPassword.Text;
 
-            foreach(DataRow row in bienDataTable_TaiKhoan.Rows)
+            foreach (DataRow row in bienDataTable_TaiKhoan.Rows)
             {
                 if (row["Tài khoản"].ToString() == user && row["Tài khoản"].ToString() != "admin")
                 {

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlChinh = new System.Windows.Forms.Panel();
             this.btnHangHoa = new System.Windows.Forms.Button();
             this.btnDoiTac = new System.Windows.Forms.Button();
             this.btnHoaDon = new System.Windows.Forms.Button();
-            this.pnlChinh = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 853);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // pnlChinh
+            // 
+            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlChinh.Location = new System.Drawing.Point(340, 0);
+            this.pnlChinh.Name = "pnlChinh";
+            this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
+            this.pnlChinh.TabIndex = 1;
+            // 
             // btnHangHoa
             // 
             this.btnHangHoa.BackColor = System.Drawing.Color.White;
@@ -75,6 +84,9 @@
             this.btnHangHoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHangHoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHangHoa.UseVisualStyleBackColor = false;
+            this.btnHangHoa.Click += new System.EventHandler(this.btnHangHoa_Click);
+            this.btnHangHoa.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnHangHoa.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // btnDoiTac
             // 
@@ -91,6 +103,9 @@
             this.btnDoiTac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDoiTac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDoiTac.UseVisualStyleBackColor = false;
+            this.btnDoiTac.Click += new System.EventHandler(this.btnDoiTac_Click);
+            this.btnDoiTac.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnDoiTac.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // btnHoaDon
             // 
@@ -107,19 +122,13 @@
             this.btnHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHoaDon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHoaDon.UseVisualStyleBackColor = false;
-            // 
-            // pnlChinh
-            // 
-            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChinh.Location = new System.Drawing.Point(340, 0);
-            this.pnlChinh.Name = "pnlChinh";
-            this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
-            this.pnlChinh.TabIndex = 1;
+            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
+            this.btnHoaDon.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
+            this.btnHoaDon.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
             // FormTrangChuForNhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
             this.Controls.Add(this.pnlChinh);
@@ -130,6 +139,8 @@
             this.Name = "FormTrangChuForNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí bán hàng";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormTrangChuForNhanVien_FormClosed);
+            this.Load += new System.EventHandler(this.FormTrangChuForNhanVien_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

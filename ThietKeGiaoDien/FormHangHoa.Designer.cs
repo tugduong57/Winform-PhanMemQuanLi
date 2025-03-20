@@ -78,7 +78,7 @@
             this.tbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSearch.Location = new System.Drawing.Point(173, 28);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(730, 41);
+            this.tbSearch.Size = new System.Drawing.Size(730, 35);
             this.tbSearch.TabIndex = 1;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
@@ -99,7 +99,7 @@
             this.cbHang.FormattingEnabled = true;
             this.cbHang.Location = new System.Drawing.Point(173, 88);
             this.cbHang.Name = "cbHang";
-            this.cbHang.Size = new System.Drawing.Size(253, 44);
+            this.cbHang.Size = new System.Drawing.Size(253, 37);
             this.cbHang.TabIndex = 3;
             this.cbHang.SelectedIndexChanged += new System.EventHandler(this.cbHang_SelectedIndexChanged);
             // 
@@ -136,7 +136,7 @@
             // 
             // FormHangHoa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 845);
             this.Controls.Add(this.tableLayoutPanel2);

@@ -23,37 +23,56 @@ namespace ThietKeGiaoDien
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void FormXX_MouseLeave(object sender, EventArgs e)
         {
-            if(fXuat == null)
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.FromArgb(255, 196, 164);
+        }
+
+        private void FormXX_MouseEnter(object sender, EventArgs e)
+        {
+            Button buttonX = (Button)sender;
+            buttonX.BackColor = Color.FromArgb(64, 72, 114);
+        }
+        
+        public void HideButton()
+        {
+            btn_LichSu.Visible = false;
+            btn_Nhap.Visible = false;
+        }
+
+        public void btn_Xuat_Click(object sender, EventArgs e)
+        {
+            if (fXuat == null)
             {
                 fXuat = new FormHoaDonXuat();
                 fXuat.TopLevel = false;
             }
-                fXuat.BienConnect = conofHoaDon;
-                pnl_hoadon.Controls.Clear();
-                pnl_hoadon.Controls.Add(fXuat);
-                fXuat.Dock = DockStyle.Fill;
-                fXuat.Show();
+            fXuat.BienConnect = conofHoaDon;
+            pnl_hoadon.Controls.Clear();
+            pnl_hoadon.Controls.Add(fXuat);
+            fXuat.Dock = DockStyle.Fill;
+            fXuat.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_Nhap_Click(object sender, EventArgs e)
         {
-            if(fNhap == null)
+            if (fNhap == null)
             {
                 fNhap = new FormHoaDonNhap();
                 fNhap.TopLevel = false;
             }
-                fNhap.BienConnect = conofHoaDon;
-                pnl_hoadon.Controls.Clear();
-                pnl_hoadon.Controls.Add(fNhap);
-                fNhap.Dock = DockStyle.Fill;
-                fNhap.Show();
+            fNhap.BienConnect = conofHoaDon;
+            pnl_hoadon.Controls.Clear();
+            pnl_hoadon.Controls.Add(fNhap);
+            fNhap.Dock = DockStyle.Fill;
+            fNhap.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_LichSu_Click(object sender, EventArgs e)
         {
-            if(fLichSu == null)
+            if (fLichSu == null)
             {
                 fLichSu = new FormHoaDonLichSu();
                 fLichSu.TopLevel = false;

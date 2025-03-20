@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_TimKiem = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvHDLichSu = new System.Windows.Forms.DataGridView();
+            this.menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btn_xoa = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDLichSu)).BeginInit();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel7
@@ -89,7 +91,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(840, 8);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(0, 44);
+            this.textBox1.Size = new System.Drawing.Size(0, 53);
             this.textBox1.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -99,10 +101,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 247F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tb_TimKiem, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 61);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -119,26 +119,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(14, 1);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(592, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tìm Kiếm";
-            // 
-            // tb_TimKiem
-            // 
-            this.tb_TimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_TimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_TimKiem.Location = new System.Drawing.Point(715, 8);
-            this.tb_TimKiem.Name = "tb_TimKiem";
-            this.tb_TimKiem.Size = new System.Drawing.Size(439, 35);
-            this.tb_TimKiem.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
@@ -165,15 +145,32 @@
             this.dgvHDLichSu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHDLichSu.Location = new System.Drawing.Point(23, 23);
             this.dgvHDLichSu.Name = "dgvHDLichSu";
+            this.dgvHDLichSu.ReadOnly = true;
             this.dgvHDLichSu.RowHeadersWidth = 51;
             this.dgvHDLichSu.RowTemplate.Height = 24;
             this.dgvHDLichSu.Size = new System.Drawing.Size(1133, 550);
             this.dgvHDLichSu.TabIndex = 0;
             this.dgvHDLichSu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDLichSu_CellContentClick);
+            this.dgvHDLichSu.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHDLichSu_CellMouseClick);
+            // 
+            // menu
+            // 
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_xoa});
+            this.menu.Name = "cms_funtion";
+            this.menu.Size = new System.Drawing.Size(105, 28);
+            // 
+            // btn_xoa
+            // 
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(104, 24);
+            this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // FormHoaDonLichSu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 718);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -188,9 +185,9 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDLichSu)).EndInit();
+            this.menu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -203,9 +200,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_TimKiem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dgvHDLichSu;
+        private System.Windows.Forms.ContextMenuStrip menu;
+        private System.Windows.Forms.ToolStripMenuItem btn_xoa;
     }
 }

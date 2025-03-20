@@ -35,9 +35,9 @@ namespace ThietKeGiaoDien
                 col.ReadOnly = true;
             dgvBGia.Columns["Đơn giá"].ReadOnly = false;
             dgvBGia.RowTemplate.Height = 35;
-            dgvBGia.Columns["Mã"].Width = 100;              dgvBGia.Columns["Tên sản phẩm"].Width = 370;
-            dgvBGia.Columns["Phân loại"].Width = 170;       dgvBGia.Columns["ĐVT"].Width = 90;
-            dgvBGia.Columns["SL"].Width = 50;               dgvBGia.Columns["Giá nhập"].Width = 150;
+            dgvBGia.Columns["Mã"].Width = 100; dgvBGia.Columns["Tên sản phẩm"].Width = 370;
+            dgvBGia.Columns["Phân loại"].Width = 170; dgvBGia.Columns["ĐVT"].Width = 90;
+            dgvBGia.Columns["SL"].Width = 50; dgvBGia.Columns["Giá nhập"].Width = 150;
             dgvBGia.Columns["Giá nhập"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvBGia.Columns["Đơn giá"].Width = 125;
             dgvBGia.Columns["Đơn giá"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -84,15 +84,15 @@ namespace ThietKeGiaoDien
         private void dgvBGia_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow currentRow = dgvBGia.Rows[e.RowIndex];
-            string noidungDaNhap  = currentRow.Cells[dgvBGia.Columns["Đơn giá"].Index].Value.ToString();
-            string MaSanPham      = currentRow.Cells[dgvBGia.Columns["Mã"].Index].Value.ToString();
-            string DonViTinh      = currentRow.Cells[dgvBGia.Columns["ĐVT"].Index].Value.ToString();
+            string noidungDaNhap = currentRow.Cells[dgvBGia.Columns["Đơn giá"].Index].Value.ToString();
+            string MaSanPham = currentRow.Cells[dgvBGia.Columns["Mã"].Index].Value.ToString();
+            string DonViTinh = currentRow.Cells[dgvBGia.Columns["ĐVT"].Index].Value.ToString();
             decimal DonGia;
             try
             {
                 DonGia = Convert.ToDecimal(noidungDaNhap);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Có lỗi khi nhập đơn giá!");
                 return;

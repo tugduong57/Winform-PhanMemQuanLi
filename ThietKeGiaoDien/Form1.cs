@@ -17,7 +17,7 @@ namespace ThietKeGiaoDien
         {
             InitializeComponent();
         }
-        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
+        string ConnectString = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
 
@@ -42,7 +42,7 @@ namespace ThietKeGiaoDien
         }
 
         // Các biến kiểm soát (= false khi form đó đã được mở 1 lần)
-        public bool fHangHoa = true, fDoiTac = true, fHoaDon = true, 
+        public bool fHangHoa = true, fDoiTac = true, fHoaDon = true,
             fThongKe = true, fBangGia = true, fTaiKhoan = true;
 
         FormHangHoa childHangHoa; // Tương tự với các Form còn lại
@@ -72,6 +72,7 @@ namespace ThietKeGiaoDien
                 childDoiTac.connOfDoiTac = bienConnect;
                 fDoiTac = false; childDoiTac.TopLevel = false;
             }
+            childDoiTac.btnKH_Click(sender, e);
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childDoiTac);
             childDoiTac.Dock = DockStyle.Fill;
             childDoiTac.Show();
@@ -90,6 +91,7 @@ namespace ThietKeGiaoDien
                 childHoaDon.conofHoaDon = bienConnect;
                 fHoaDon = false; childHoaDon.TopLevel = false;
             }
+            childHoaDon.btn_Xuat_Click(sender, e);
             pnlChinh.Controls.Clear(); pnlChinh.Controls.Add(childHoaDon);
             childHoaDon.Dock = DockStyle.Fill;
             childHoaDon.Show();
@@ -119,7 +121,7 @@ namespace ThietKeGiaoDien
             resetBackColorOf6Button();
             btnBangGia.BackColor = Color.FromArgb(220, 220, 220);
             if (fBangGia)
-            { 
+            {
                 childBangGia = new FormBangGia();
                 childBangGia.connOfBangGia = bienConnect;
                 fBangGia = false; childBangGia.TopLevel = false;
@@ -155,7 +157,7 @@ namespace ThietKeGiaoDien
         private void btnX_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            if (buttonX.BackColor != Color.FromArgb(220, 220, 220)) 
+            if (buttonX.BackColor != Color.FromArgb(220, 220, 220))
                 buttonX.BackColor = Color.White;
         }
 
