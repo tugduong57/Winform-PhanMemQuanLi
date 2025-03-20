@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Runtime.CompilerServices;
 
 namespace ThietKeGiaoDien
 {
@@ -82,16 +83,11 @@ namespace ThietKeGiaoDien
 
             // Hide các phần giao diện còn lại
             lbTongKet.Text = ""; lbTongSoHoaDon.Text = "";
-            lbTongKet1.Text = ""; lbTongKet2.Text = "";
+            lbTongKet1.Text = ""; 
             lbXemBieuDo.Text = "";
             btnNgay.Hide(); btnThang.Hide(); btnNam.Hide();
-
-            string conn = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
-                "; Initial Catalog=dataForProject" +
-                "; Integrated Security=True";
-
-            connOfThongKe = new SqlConnection(conn);
-            connOfThongKe.Open();
+            lbTenBieuDo.Text = "";
+            btnXuatFile.Hide();
 
             // Select MinDate, MaxDate for 2 TimePicker
 
@@ -150,7 +146,7 @@ namespace ThietKeGiaoDien
         }
         private void dtpDateEnd_ValueChanged(object sender, EventArgs e)
         {
-            NgayKetThuc = dtpDateEnd.Value.Date.ToString("yyyy-MM-dd");
+            NgayKetThuc = dtpDateEnd.Value.AddDays(1).Date.ToString("yyyy-MM-dd");
         }
 
 
@@ -393,6 +389,24 @@ namespace ThietKeGiaoDien
             chartBaoCao.Series.Add(seriesNgay);
             lbTenBieuDo.Text = "Biểu đồ thống kê theo Ngày";
         }
+
+
+        private void chartBaoCao_GetToolTipText(object sender, ToolTipEventArgs e)
+        {
+            HitTestResult result = chartBaoCao.HitTest(e.X, e.Y);
+
+            if (result.ChartElementType == ChartElementType.DataPoint)
+            {
+                Series series = result.Series;
+                int pointIndex = result.PointIndex;
+                DataPoint point = series.Points[pointIndex];
+
+                string x = point.AxisLabel; double y = point.YValues[0];
+                point.ToolTip = $"{x}: {y:N0}đ";
+            }
+        }
+
+
         private void chartBaoCao_MouseClick(object sender, MouseEventArgs e)
         {
             HitTestResult result = chartBaoCao.HitTest(e.X, e.Y);
@@ -408,7 +422,6 @@ namespace ThietKeGiaoDien
                 if (!point.IsValueShownAsLabel)
                 {
                     point.IsValueShownAsLabel = true;
-                    point.ToolTip = $"{x} : {y:N0}";
                 }
                 else
                     point.IsValueShownAsLabel = false;
@@ -425,10 +438,11 @@ namespace ThietKeGiaoDien
             //Nếu phân loại là Tất cả
             if (phanLoaiSelected == "Tất cả")
             {
+                //dt.[Tên đối tác],
+                //nd.[Tên người dùng] AS[Người bán], 
                 string lenhSQL = @"
-                    SELECT hd.[Ngày tạo], 
-                    dt.[Tên đối tác],
-                    nd.[Tên người dùng] AS [Người bán], Format([Tổng tiền], 'N0') AS [Tổng tiền]
+                    SELECT CAST(hd.[Ngày tạo] AS DATE) AS [Ngày tạo], 
+                    Format(SUM(hd.[Tổng tiền]), 'N0') AS [Tổng tiền]
                     FROM HoaDon hd
                     INNER JOIN DoiTac dt ON hd.[Mã đối tác] = dt.[Mã đối tác]
                     INNER JOIN NguoiDung nd ON hd.[Mã người bán] = nd.[Tài khoản]
@@ -449,7 +463,7 @@ namespace ThietKeGiaoDien
                 else
                     lenhSQL += $" AND hd.[Mã đối tác] = '{maDoiTacSelected}'";
 
-                lenhSQL += "ORDER BY hd.[Ngày tạo] ASC;";
+                lenhSQL += "GROUP BY CAST(hd.[Ngày tạo] AS DATE) ORDER BY CAST(hd.[Ngày tạo] AS DATE) ASC;";
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(lenhSQL, connOfThongKe);
                 dataHoaDonFiltered = new DataTable(); dataAdapter.Fill(dataHoaDonFiltered);
@@ -458,11 +472,11 @@ namespace ThietKeGiaoDien
             // Nếu phân loại là 1 phân loại cụ thể 
             else
             {
+                //dt.[Tên đối tác], 
+                //nd.[Tên người dùng] AS[Người bán],
                 string lenhSQL = @"
                 SELECT 
-                    hd.[Ngày tạo], 
-                    dt.[Tên đối tác], 
-                    nd.[Tên người dùng] AS [Người bán],
+                    CAST(hd.[Ngày tạo] AS DATE) AS [Ngày tạo], 
                     Format(SUM(cthd.[Số lượng] * cthd.[Đơn giá]), 'N0') AS [Tổng tiền]
                 FROM HoaDon hd
                 INNER JOIN DoiTac dt ON hd.[Mã đối tác] = dt.[Mã đối tác]
@@ -488,12 +502,12 @@ namespace ThietKeGiaoDien
 
                 // Gộp theo ngày 
 
-                lenhSQL += "GROUP BY hd.[Ngày tạo], dt.[Tên đối tác], nd.[Tên người dùng] ORDER BY hd.[Ngày tạo] ASC;";
+                lenhSQL += "GROUP BY CAST(hd.[Ngày tạo] AS DATE) ORDER BY CAST(hd.[Ngày tạo] AS DATE) ASC;";
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(lenhSQL, connOfThongKe);
                 dataHoaDonFiltered = new DataTable(); dataAdapter.Fill(dataHoaDonFiltered);
 
-                // CHECK: textBox1.Text = "ĐT: " + maDoiTacSelected + " NV: " + maNhanVienSelected + " PL: " + phanLoaiSelected + "\nLenhSQL:" + lenhSQL;
+                //CHECK: textBox1.Text = "ĐT: " + maDoiTacSelected + " NV: " + maNhanVienSelected + " PL: " + phanLoaiSelected + "\nLenhSQL:" + lenhSQL;
             }
         }
         private void btnXemBaoCao_Click(object sender, EventArgs e)
@@ -508,7 +522,7 @@ namespace ThietKeGiaoDien
 
             // Lấy ngày trong bộ lọc
             string startDate = dtpDateStart.Value.Date.ToString("yyyy-MM-dd");
-            string endDate = dtpDateEnd.Value.Date.ToString("yyyy-MM-dd");
+            string endDate = dtpDateEnd.Value.AddDays(1).Date.ToString("yyyy-MM-dd");
 
             LocDataTableTheoBoLoc(phanLoaiSelected, maNhanVienSelected, maDoiTacSelected, startDate, endDate);
 
@@ -516,7 +530,7 @@ namespace ThietKeGiaoDien
              *      PHẦN TỔNG KẾT
              */
 
-            btnNgay.Show(); btnThang.Show(); btnNam.Show();
+            btnNgay.Show(); btnThang.Show(); btnNam.Show(); btnXuatFile.Show();
             lbTongKet.Text = "Tổng kết";
             lbXemBieuDo.Text = "Xem biểu đồ theo:";
 
@@ -609,6 +623,7 @@ namespace ThietKeGiaoDien
             for (int i = 0; i < listNgay.Count; i++)
                 seriesNgay.Points.AddXY(listNgay[i], Convert.ToDouble(listTongTienTheoNgay[i]));
 
+
             // Tháng
             seriesThang = new Series("Tổng tiền")
             {
@@ -626,6 +641,7 @@ namespace ThietKeGiaoDien
 
             for (int i = 1; i < listThang.Count; i++)
                 seriesThang.Points.AddXY(listThang[i], Convert.ToDouble(listTongTienTheoThang[i]));
+            
 
             // Năm
             seriesNam = new Series("Tổng tiền")

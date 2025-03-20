@@ -64,7 +64,8 @@
             // 
             // btnKH
             // 
-            this.btnKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btnKH.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKH.Location = new System.Drawing.Point(23, 3);
             this.btnKH.Name = "btnKH";
@@ -78,7 +79,8 @@
             // 
             // btn_NCC
             // 
-            this.btn_NCC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btn_NCC.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_NCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_NCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_NCC.Location = new System.Drawing.Point(369, 3);
             this.btn_NCC.Name = "btn_NCC";
@@ -100,7 +102,7 @@
             // 
             // FormDoiTac
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1426, 853);
             this.Controls.Add(this.pnl_DoiTac);

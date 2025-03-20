@@ -18,7 +18,7 @@ namespace ThietKeGiaoDien
             InitializeComponent();
         }
 
-        string ConnectString = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
+        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
 
@@ -77,7 +77,7 @@ namespace ThietKeGiaoDien
         private void btLogin_Click(object sender, EventArgs e)
         {
             string user = tbUser.Text; string password = tbPassword.Text;
-
+            CurrentUser.TaiKhoan = user;
             foreach (DataRow row in bienDataTable_TaiKhoan.Rows)
             {
                 if (row["Tài khoản"].ToString() == user && row["Tài khoản"].ToString() != "admin")

@@ -36,7 +36,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTongKet2 = new System.Windows.Forms.Label();
             this.lbTongSoHoaDon = new System.Windows.Forms.Label();
             this.lbTongKet1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,6 +65,7 @@
             this.btnNam = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXuatFile = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,9 +86,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 20);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1224, 55);
+            this.label1.Size = new System.Drawing.Size(1224, 69);
             this.label1.TabIndex = 0;
             this.label1.Text = "BÁO CÁO THỐNG KÊ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -96,6 +96,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -126,6 +127,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.tableLayoutPanel6);
             this.panel1.Controls.Add(this.tableLayoutPanel5);
             this.panel1.Controls.Add(this.tableLayoutPanel4);
@@ -140,7 +142,6 @@
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.lbTongKet2, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.lbTongSoHoaDon, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.lbTongKet1, 0, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -153,18 +154,6 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(361, 164);
             this.tableLayoutPanel6.TabIndex = 3;
-            // 
-            // lbTongKet2
-            // 
-            this.lbTongKet2.AutoSize = true;
-            this.lbTongKet2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTongKet2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongKet2.Location = new System.Drawing.Point(3, 120);
-            this.lbTongKet2.Name = "lbTongKet2";
-            this.lbTongKet2.Size = new System.Drawing.Size(355, 50);
-            this.lbTongKet2.TabIndex = 4;
-            this.lbTongKet2.Text = "Label2";
-            this.lbTongKet2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbTongSoHoaDon
             // 
@@ -210,14 +199,16 @@
             // 
             // btnXemBaoCao
             // 
+            this.btnXemBaoCao.BackColor = System.Drawing.Color.LightCyan;
             this.btnXemBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXemBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXemBaoCao.Location = new System.Drawing.Point(53, 3);
             this.btnXemBaoCao.Name = "btnXemBaoCao";
             this.btnXemBaoCao.Size = new System.Drawing.Size(255, 44);
             this.btnXemBaoCao.TabIndex = 0;
             this.btnXemBaoCao.Text = "Xem báo cáo";
-            this.btnXemBaoCao.UseVisualStyleBackColor = true;
+            this.btnXemBaoCao.UseVisualStyleBackColor = false;
             this.btnXemBaoCao.Click += new System.EventHandler(this.btnXemBaoCao_Click);
             // 
             // lbTongKet
@@ -235,6 +226,7 @@
             // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -303,7 +295,7 @@
             this.dtpDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateStart.Location = new System.Drawing.Point(160, 3);
             this.dtpDateStart.Name = "dtpDateStart";
-            this.dtpDateStart.Size = new System.Drawing.Size(198, 32);
+            this.dtpDateStart.Size = new System.Drawing.Size(198, 38);
             this.dtpDateStart.TabIndex = 5;
             this.dtpDateStart.ValueChanged += new System.EventHandler(this.dtpDateStart_ValueChanged);
             // 
@@ -314,7 +306,7 @@
             this.dtpDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateEnd.Location = new System.Drawing.Point(160, 49);
             this.dtpDateEnd.Name = "dtpDateEnd";
-            this.dtpDateEnd.Size = new System.Drawing.Size(198, 32);
+            this.dtpDateEnd.Size = new System.Drawing.Size(198, 38);
             this.dtpDateEnd.TabIndex = 6;
             this.dtpDateEnd.ValueChanged += new System.EventHandler(this.dtpDateEnd_ValueChanged);
             // 
@@ -325,7 +317,7 @@
             this.cbNhanVien.FormattingEnabled = true;
             this.cbNhanVien.Location = new System.Drawing.Point(160, 187);
             this.cbNhanVien.Name = "cbNhanVien";
-            this.cbNhanVien.Size = new System.Drawing.Size(198, 34);
+            this.cbNhanVien.Size = new System.Drawing.Size(198, 39);
             this.cbNhanVien.TabIndex = 9;
             this.cbNhanVien.SelectedIndexChanged += new System.EventHandler(this.cbNhanVien_SelectedIndexChanged);
             // 
@@ -360,7 +352,7 @@
             this.cbDoiTac.FormattingEnabled = true;
             this.cbDoiTac.Location = new System.Drawing.Point(160, 95);
             this.cbDoiTac.Name = "cbDoiTac";
-            this.cbDoiTac.Size = new System.Drawing.Size(198, 34);
+            this.cbDoiTac.Size = new System.Drawing.Size(198, 39);
             this.cbDoiTac.TabIndex = 8;
             this.cbDoiTac.SelectedIndexChanged += new System.EventHandler(this.cbDoiTac_SelectedIndexChanged);
             // 
@@ -371,7 +363,7 @@
             this.cbPhanLoai.FormattingEnabled = true;
             this.cbPhanLoai.Location = new System.Drawing.Point(160, 141);
             this.cbPhanLoai.Name = "cbPhanLoai";
-            this.cbPhanLoai.Size = new System.Drawing.Size(198, 34);
+            this.cbPhanLoai.Size = new System.Drawing.Size(198, 39);
             this.cbPhanLoai.TabIndex = 7;
             this.cbPhanLoai.SelectedIndexChanged += new System.EventHandler(this.cbPhanLoai_SelectedIndexChanged);
             // 
@@ -430,6 +422,7 @@
             this.chartBaoCao.Size = new System.Drawing.Size(851, 499);
             this.chartBaoCao.TabIndex = 6;
             this.chartBaoCao.Text = "chart1";
+            this.chartBaoCao.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartBaoCao_GetToolTipText);
             this.chartBaoCao.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chartBaoCao_MouseClick);
             // 
             // tableLayoutPanel8
@@ -490,7 +483,7 @@
             this.lbXemBieuDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbXemBieuDo.Location = new System.Drawing.Point(28, 0);
             this.lbXemBieuDo.Name = "lbXemBieuDo";
-            this.lbXemBieuDo.Size = new System.Drawing.Size(210, 50);
+            this.lbXemBieuDo.Size = new System.Drawing.Size(256, 50);
             this.lbXemBieuDo.TabIndex = 0;
             this.lbXemBieuDo.Text = "Xem biểu đồ theo:";
             this.lbXemBieuDo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -499,6 +492,7 @@
             // 
             this.btnNgay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNgay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNgay.Location = new System.Drawing.Point(298, 3);
             this.btnNgay.Name = "btnNgay";
@@ -511,6 +505,7 @@
             // btnThang
             // 
             this.btnThang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnThang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThang.Location = new System.Drawing.Point(432, 3);
             this.btnThang.Name = "btnThang";
@@ -522,6 +517,7 @@
             // 
             // btnNam
             // 
+            this.btnNam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNam.Location = new System.Drawing.Point(566, 3);
             this.btnNam.Name = "btnNam";
@@ -553,13 +549,21 @@
             this.btnXuatFile.Name = "btnXuatFile";
             this.btnXuatFile.Size = new System.Drawing.Size(280, 69);
             this.btnXuatFile.TabIndex = 0;
-            this.btnXuatFile.Text = "Xuất file PDF";
+            this.btnXuatFile.Text = "Xuất thống kê";
             this.btnXuatFile.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(62, 629);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 53);
+            this.textBox1.TabIndex = 4;
             // 
             // FormThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1230, 853);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -572,6 +576,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -614,7 +619,6 @@
         private System.Windows.Forms.Button btnXemBaoCao;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label lbTongKet1;
-        private System.Windows.Forms.Label lbTongKet2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Button btnXuatFile;
@@ -628,5 +632,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBaoCao;
         private System.Windows.Forms.Label lbTongSoHoaDon;
         private System.Windows.Forms.Label lbTongKet;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

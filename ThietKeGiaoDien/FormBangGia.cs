@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace ThietKeGiaoDien
 {
@@ -102,6 +105,49 @@ namespace ThietKeGiaoDien
 
             SqlCommand cmd = new SqlCommand(LenhSQL, connOfBangGia);
             cmd.ExecuteNonQuery();
+        }
+
+        private void ExportDataGridViewToPDF(DataGridView dgv, string pdfPath)
+        {
+            Document document = new Document(PageSize.A4, 10f, 10f, 20f, 20f);
+            try
+            {
+                PdfWriter.GetInstance(document, new FileStream(pdfPath, FileMode.Create));
+                document.Open();
+
+                PdfPTable pdfTable = new PdfPTable(dgv.Columns.Count);
+                pdfTable.WidthPercentage = 100;
+
+                foreach (DataGridViewColumn column in dgv.Columns)
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                    cell.BackgroundColor = new BaseColor(240, 240, 240);
+                    pdfTable.AddCell(cell);
+                }
+
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    foreach (DataGridViewCell cell in row.Cells)
+                        pdfTable.AddCell(cell.Value?.ToString() ?? "");
+                }
+                document.Add(pdfTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xuất PDF: " + ex.Message);
+            }
+            finally
+            {
+                document.Close();
+            }
+        }
+
+        private void btnXuatFile_Click(object sender, EventArgs e)
+        {
+            string pdfPath = @"C:\Users\tugdu\OneDrive\Desktop\DataGridViewExport.pdf";
+            ExportDataGridViewToPDF(dgvBGia, pdfPath);
+            MessageBox.Show("Xuất PDF thành công: " + pdfPath);
         }
     }
 }

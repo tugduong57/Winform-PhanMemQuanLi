@@ -17,7 +17,8 @@ namespace ThietKeGiaoDien
         {
             InitializeComponent();
         }
-        string ConnectString = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
+
+        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
 

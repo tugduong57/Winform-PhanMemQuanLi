@@ -54,13 +54,13 @@ namespace ThietKeGiaoDien
         private void FormXX_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(255, 196, 164);
+            buttonX.BackColor = Color.WhiteSmoke;
         }
 
         private void FormXX_MouseEnter(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(64, 72, 114);
+            buttonX.BackColor = Color.FromArgb(247, 200, 115);
         }
 
         public void HideButton()

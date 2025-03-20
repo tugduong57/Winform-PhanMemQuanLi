@@ -15,7 +15,7 @@ namespace ThietKeGiaoDien
     public partial class FormHoaDonXuat : Form
     {
         public SqlConnection BienConnect;
-        public string LoaiHoaDon = "Hóa Đơn Bán";
+        public string LoaiHoaDon = "Xuất";
         public string maDT_public;
         public string maSP_public;
         public string DVT_public;
@@ -108,7 +108,7 @@ namespace ThietKeGiaoDien
         }
         public string TaoMaHoaDonMoi()
         {
-            string newMaHD = "HDX1"; // Mặc định nếu chưa có hóa đơn nào
+            string newMaHD = "HD1"; // Mặc định nếu chưa có hóa đơn nào
 
             string query = "SELECT MAX(CAST(SUBSTRING([Mã hóa đơn], 4, LEN([Mã hóa đơn]) - 3) AS INT)) FROM HoaDon ";
 
@@ -118,7 +118,7 @@ namespace ThietKeGiaoDien
                 if (result != DBNull.Value && result != null)
                 {
                     int so = Convert.ToInt32(result) + 1;
-                    newMaHD = "HDX" + so.ToString("D3");
+                    newMaHD = "HD" + so.ToString("D3");
                 }
             }
             return newMaHD;
@@ -233,7 +233,6 @@ namespace ThietKeGiaoDien
                 SqlCommand cmd = new SqlCommand(lenhSQl, BienConnect);
 
                 cmd.Parameters.AddWithValue("@MaHD", maHD);
-                MessageBox.Show(maDT_public);
                 cmd.Parameters.AddWithValue("@maDoiTac", maDT_public);
                 cmd.Parameters.AddWithValue("@MaNguoiBan", CurrentUser.TaiKhoan);
                 cmd.Parameters.AddWithValue("@LoaiHoaDon", LoaiHoaDon);
@@ -483,19 +482,19 @@ namespace ThietKeGiaoDien
         private void FormHoaDonXuat_MouseEnter(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(64, 72, 114);
+            buttonX.BackColor = Color.FromArgb(247, 200, 115);
         }
 
         private void Luu_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Olive;
+            buttonX.BackColor = Color.WhiteSmoke;
         }
 
         private void Huy_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Red;
+            buttonX.BackColor = Color.WhiteSmoke;
         }
 
         private void dgvHoaDonXuat_DataError(object sender, DataGridViewDataErrorEventArgs e)

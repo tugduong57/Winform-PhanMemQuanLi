@@ -45,7 +45,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.87562F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.68657F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.87562F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.Controls.Add(this.btn_Xuat, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btn_LichSu, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.btn_Nhap, 3, 1);
@@ -61,12 +61,13 @@
             // 
             // btn_Xuat
             // 
-            this.btn_Xuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btn_Xuat.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Xuat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Xuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Xuat.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_Xuat.Location = new System.Drawing.Point(23, 8);
             this.btn_Xuat.Name = "btn_Xuat";
-            this.btn_Xuat.Size = new System.Drawing.Size(239, 56);
+            this.btn_Xuat.Size = new System.Drawing.Size(238, 56);
             this.btn_Xuat.TabIndex = 0;
             this.btn_Xuat.Text = "Xuất";
             this.btn_Xuat.UseVisualStyleBackColor = false;
@@ -76,12 +77,13 @@
             // 
             // btn_LichSu
             // 
-            this.btn_LichSu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btn_LichSu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_LichSu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_LichSu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LichSu.Location = new System.Drawing.Point(761, 8);
+            this.btn_LichSu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_LichSu.Location = new System.Drawing.Point(759, 8);
             this.btn_LichSu.Name = "btn_LichSu";
-            this.btn_LichSu.Size = new System.Drawing.Size(239, 56);
+            this.btn_LichSu.Size = new System.Drawing.Size(238, 56);
             this.btn_LichSu.TabIndex = 2;
             this.btn_LichSu.Text = "Lịch sử";
             this.btn_LichSu.UseVisualStyleBackColor = false;
@@ -91,12 +93,13 @@
             // 
             // btn_Nhap
             // 
-            this.btn_Nhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(164)))));
+            this.btn_Nhap.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Nhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Nhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Nhap.Location = new System.Drawing.Point(392, 8);
+            this.btn_Nhap.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_Nhap.Location = new System.Drawing.Point(391, 8);
             this.btn_Nhap.Name = "btn_Nhap";
-            this.btn_Nhap.Size = new System.Drawing.Size(239, 56);
+            this.btn_Nhap.Size = new System.Drawing.Size(238, 56);
             this.btn_Nhap.TabIndex = 1;
             this.btn_Nhap.Text = "Nhập";
             this.btn_Nhap.UseVisualStyleBackColor = false;
@@ -114,7 +117,7 @@
             // 
             // FormHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 746);
             this.Controls.Add(this.pnl_hoadon);

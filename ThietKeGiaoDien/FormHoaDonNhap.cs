@@ -22,7 +22,7 @@ namespace ThietKeGiaoDien
         public string DVT_public;
         public int SL_public = 0;
         public decimal TongTien_public = 0;
-        public string LoaiHoaDon = "Hóa Đơn Nhập";
+        public string LoaiHoaDon = "Nhập";
         //private PictureBox pictureBox;
 
         public FormHoaDonNhap()
@@ -62,7 +62,7 @@ namespace ThietKeGiaoDien
         }
         public string TaoMaHoaDonMoi()
         {
-            string newMaHD = "HDN01"; // Mặc định nếu chưa có hóa đơn nào
+            string newMaHD = "HD01"; // Mặc định nếu chưa có hóa đơn nào
 
             string query = "SELECT MAX(CAST(SUBSTRING([Mã hóa đơn], 4, LEN([Mã hóa đơn]) - 3) AS INT)) FROM HoaDon ";
 
@@ -71,7 +71,7 @@ namespace ThietKeGiaoDien
                 var result = cmd.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out int so))
                 {
-                    newMaHD = "HDN" + (so + 1).ToString("D3");
+                    newMaHD = "HD" + (so + 1).ToString("D3");
                 }
             }
             return newMaHD;
@@ -499,19 +499,19 @@ namespace ThietKeGiaoDien
         private void Luu_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Olive;
+            buttonX.BackColor = Color.WhiteSmoke;
         }
 
         private void FormXX_MouseEnter(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(64, 72, 114);
+            buttonX.BackColor = Color.FromArgb(247, 200, 115);
         }
 
         private void Huy_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.Red;
+            buttonX.BackColor = Color.WhiteSmoke;
         }
 
         // in

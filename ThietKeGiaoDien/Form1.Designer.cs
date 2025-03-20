@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlChinh = new System.Windows.Forms.Panel();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.btnBangGia = new System.Windows.Forms.Button();
             this.btnHangHoa = new System.Windows.Forms.Button();
             this.btnDoiTac = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnHoaDon = new System.Windows.Forms.Button();
+            this.pnlChinh = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,21 +70,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 853);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // pnlChinh
-            // 
-            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChinh.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.pnlChinh.Location = new System.Drawing.Point(340, 0);
-            this.pnlChinh.Name = "pnlChinh";
-            this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
-            this.pnlChinh.TabIndex = 1;
-            // 
             // btnTaiKhoan
             // 
             this.btnTaiKhoan.BackColor = System.Drawing.Color.White;
             this.btnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTaiKhoan.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTaiKhoan.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnTaiKhoan.Image = global::ThietKeGiaoDien.Properties.Resources.TaiKhoan_removebg;
             this.btnTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTaiKhoan.Location = new System.Drawing.Point(9, 721);
@@ -104,7 +95,8 @@
             // 
             this.btnBangGia.BackColor = System.Drawing.Color.White;
             this.btnBangGia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBangGia.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnBangGia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBangGia.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnBangGia.Image = global::ThietKeGiaoDien.Properties.Resources.BangGia_removebg;
             this.btnBangGia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBangGia.Location = new System.Drawing.Point(9, 581);
@@ -124,7 +116,8 @@
             // 
             this.btnHangHoa.BackColor = System.Drawing.Color.White;
             this.btnHangHoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHangHoa.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnHangHoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHangHoa.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnHangHoa.Image = global::ThietKeGiaoDien.Properties.Resources.HangHoa_removebg;
             this.btnHangHoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHangHoa.Location = new System.Drawing.Point(9, 23);
@@ -144,7 +137,8 @@
             // 
             this.btnDoiTac.BackColor = System.Drawing.Color.White;
             this.btnDoiTac.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDoiTac.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnDoiTac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoiTac.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDoiTac.Image = global::ThietKeGiaoDien.Properties.Resources.DoiTac_removebg;
             this.btnDoiTac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDoiTac.Location = new System.Drawing.Point(9, 161);
@@ -164,7 +158,8 @@
             // 
             this.btnThongKe.BackColor = System.Drawing.Color.White;
             this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThongKe.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKe.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnThongKe.Image = global::ThietKeGiaoDien.Properties.Resources.ThongKe_removebg;
             this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThongKe.Location = new System.Drawing.Point(9, 441);
@@ -184,7 +179,8 @@
             // 
             this.btnHoaDon.BackColor = System.Drawing.Color.White;
             this.btnHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHoaDon.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnHoaDon.Image = global::ThietKeGiaoDien.Properties.Resources.HoaDon_removebg;
             this.btnHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHoaDon.Location = new System.Drawing.Point(9, 301);
@@ -200,9 +196,20 @@
             this.btnHoaDon.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
             this.btnHoaDon.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
+            // pnlChinh
+            // 
+            this.pnlChinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlChinh.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlChinh.Location = new System.Drawing.Point(340, 0);
+            this.pnlChinh.Name = "pnlChinh";
+            this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
+            this.pnlChinh.TabIndex = 1;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
             this.Controls.Add(this.pnlChinh);

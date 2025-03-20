@@ -110,19 +110,6 @@ namespace ThietKeGiaoDien
             }
         }
 
-        private void dgvTaiKhoan_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvTaiKhoan.Rows[e.RowIndex];
-                tb_tk.Text = row.Cells["Tài khoản"].Value.ToString();
-                tb_mk.Text = row.Cells["Mật khẩu"].Value.ToString();
-                tb_tenND.Text = row.Cells["Tên người dùng"].Value.ToString();
-                tb_GhiChu.Text = row.Cells["Ghi chú"].Value.ToString();
-                btn_them.Enabled = false;
-            }
-        }
-
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             string taiKhoan = tb_tk.Text.Trim();
@@ -149,6 +136,19 @@ namespace ThietKeGiaoDien
                 {
                     MessageBox.Show("Không thể xóa tài khoản, vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void dgvTaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvTaiKhoan.Rows[e.RowIndex];
+                tb_tk.Text = row.Cells["Tài khoản"].Value.ToString();
+                tb_mk.Text = row.Cells["Mật khẩu"].Value.ToString();
+                tb_tenND.Text = row.Cells["Tên người dùng"].Value.ToString();
+                tb_GhiChu.Text = row.Cells["Ghi chú"].Value.ToString();
+                btn_them.Enabled = false;
             }
         }
     }

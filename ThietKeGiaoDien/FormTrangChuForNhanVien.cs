@@ -18,7 +18,7 @@ namespace ThietKeGiaoDien
             this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
         }
-        string ConnectString = "Data Source=DESKTOP-73HD43G\\SQLEXPRESS" +
+        string ConnectString = "Data Source=DESKTOP-2TGO6QK" +
                 "; Initial Catalog=dataForProject" +
                 "; Integrated Security=True";
         public SqlConnection bienConnect;
