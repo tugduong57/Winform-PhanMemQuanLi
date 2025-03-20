@@ -72,8 +72,9 @@
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(359, 38);
             this.tbUser.TabIndex = 2;
-            this.tbUser.Text = "Username";
-            this.tbUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbUser_MouseDown);
+            this.tbUser.Text = "Tài khoản";
+            this.tbUser.Enter += new System.EventHandler(this.tbUser_Enter);
+            this.tbUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // pnl_SignIn
             // 
@@ -111,9 +112,9 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(359, 38);
             this.tbPassword.TabIndex = 3;
-            this.tbPassword.Text = "Password";
-            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
-            this.tbPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbPassword_MouseDown);
+            this.tbPassword.Text = "Mật khẩu";
+            this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // Login
             // 
@@ -126,6 +127,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.Load += new System.EventHandler(this.Login_Load);
             this.pnl_SignIn.ResumeLayout(false);
             this.pnl_SignIn.PerformLayout();

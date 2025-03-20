@@ -55,16 +55,16 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 13;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.639345F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.24033F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.9378663F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.47479F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.9378663F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.47479F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.9378663F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.47479F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.9378663F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.47479F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.9378663F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75411F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.639345F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75411F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.639345F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75411F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.639345F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75411F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.639345F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75411F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.639345F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75657F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.636788F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 853);
@@ -72,15 +72,13 @@
             // 
             // btnTaiKhoan
             // 
-            this.btnTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(185)))), ((int)(((byte)(227)))));
-            this.btnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTaiKhoan.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnTaiKhoan.BackColor = System.Drawing.Color.White;
             this.btnTaiKhoan.Image = global::ThietKeGiaoDien.Properties.Resources.TaiKhoan_removebg;
             this.btnTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTaiKhoan.Location = new System.Drawing.Point(9, 721);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(9, 712);
             this.btnTaiKhoan.Margin = new System.Windows.Forms.Padding(9);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
-            this.btnTaiKhoan.Size = new System.Drawing.Size(322, 108);
+            this.btnTaiKhoan.Size = new System.Drawing.Size(322, 107);
             this.btnTaiKhoan.TabIndex = 6;
             this.btnTaiKhoan.Text = "Tài khoản";
             this.btnTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -92,15 +90,13 @@
             // 
             // btnBangGia
             // 
-            this.btnBangGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(185)))), ((int)(((byte)(227)))));
-            this.btnBangGia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBangGia.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnBangGia.BackColor = System.Drawing.Color.White;
             this.btnBangGia.Image = global::ThietKeGiaoDien.Properties.Resources.BangGia_removebg;
             this.btnBangGia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBangGia.Location = new System.Drawing.Point(9, 581);
+            this.btnBangGia.Location = new System.Drawing.Point(9, 574);
             this.btnBangGia.Margin = new System.Windows.Forms.Padding(9);
             this.btnBangGia.Name = "btnBangGia";
-            this.btnBangGia.Size = new System.Drawing.Size(322, 114);
+            this.btnBangGia.Size = new System.Drawing.Size(322, 107);
             this.btnBangGia.TabIndex = 5;
             this.btnBangGia.Text = "Bảng giá";
             this.btnBangGia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -112,15 +108,13 @@
             // 
             // btnHangHoa
             // 
-            this.btnHangHoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(185)))), ((int)(((byte)(227)))));
-            this.btnHangHoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHangHoa.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnHangHoa.BackColor = System.Drawing.Color.White;
             this.btnHangHoa.Image = global::ThietKeGiaoDien.Properties.Resources.HangHoa_removebg;
             this.btnHangHoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHangHoa.Location = new System.Drawing.Point(9, 23);
+            this.btnHangHoa.Location = new System.Drawing.Point(9, 22);
             this.btnHangHoa.Margin = new System.Windows.Forms.Padding(9);
             this.btnHangHoa.Name = "btnHangHoa";
-            this.btnHangHoa.Size = new System.Drawing.Size(322, 112);
+            this.btnHangHoa.Size = new System.Drawing.Size(322, 107);
             this.btnHangHoa.TabIndex = 1;
             this.btnHangHoa.Text = "Hàng Hóa";
             this.btnHangHoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,15 +126,13 @@
             // 
             // btnDoiTac
             // 
-            this.btnDoiTac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(185)))), ((int)(((byte)(227)))));
-            this.btnDoiTac.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDoiTac.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnDoiTac.BackColor = System.Drawing.Color.White;
             this.btnDoiTac.Image = global::ThietKeGiaoDien.Properties.Resources.DoiTac_removebg;
             this.btnDoiTac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiTac.Location = new System.Drawing.Point(9, 161);
+            this.btnDoiTac.Location = new System.Drawing.Point(9, 160);
             this.btnDoiTac.Margin = new System.Windows.Forms.Padding(9);
             this.btnDoiTac.Name = "btnDoiTac";
-            this.btnDoiTac.Size = new System.Drawing.Size(322, 114);
+            this.btnDoiTac.Size = new System.Drawing.Size(322, 107);
             this.btnDoiTac.TabIndex = 2;
             this.btnDoiTac.Text = "Đối tác";
             this.btnDoiTac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,15 +144,13 @@
             // 
             // btnThongKe
             // 
-            this.btnThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(185)))), ((int)(((byte)(227)))));
-            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThongKe.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnThongKe.BackColor = System.Drawing.Color.White;
             this.btnThongKe.Image = global::ThietKeGiaoDien.Properties.Resources.ThongKe_removebg;
             this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKe.Location = new System.Drawing.Point(9, 441);
+            this.btnThongKe.Location = new System.Drawing.Point(9, 436);
             this.btnThongKe.Margin = new System.Windows.Forms.Padding(9);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(322, 114);
+            this.btnThongKe.Size = new System.Drawing.Size(322, 107);
             this.btnThongKe.TabIndex = 4;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,15 +162,13 @@
             // 
             // btnHoaDon
             // 
-            this.btnHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(185)))), ((int)(((byte)(227)))));
-            this.btnHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHoaDon.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnHoaDon.BackColor = System.Drawing.Color.White;
             this.btnHoaDon.Image = global::ThietKeGiaoDien.Properties.Resources.HoaDon_removebg;
             this.btnHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHoaDon.Location = new System.Drawing.Point(9, 301);
+            this.btnHoaDon.Location = new System.Drawing.Point(9, 298);
             this.btnHoaDon.Margin = new System.Windows.Forms.Padding(9);
             this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(322, 114);
+            this.btnHoaDon.Size = new System.Drawing.Size(322, 107);
             this.btnHoaDon.TabIndex = 3;
             this.btnHoaDon.Text = "Hóa đơn";
             this.btnHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -194,7 +182,6 @@
             // 
             this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChinh.ForeColor = System.Drawing.Color.MidnightBlue;
             this.pnlChinh.Location = new System.Drawing.Point(340, 0);
             this.pnlChinh.Name = "pnlChinh";
             this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
@@ -202,17 +189,19 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
             this.Controls.Add(this.pnlChinh);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(9);
+            this.MinimumSize = new System.Drawing.Size(1200, 675);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí bán hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -33,7 +33,6 @@
             this.btnDoiTac = new System.Windows.Forms.Button();
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.pnlChinh = new System.Windows.Forms.Panel();
-            this.btnDangXuat = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +43,6 @@
             this.tableLayoutPanel1.Controls.Add(this.btnHangHoa, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnDoiTac, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnHoaDon, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnDangXuat, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(9);
@@ -119,17 +117,6 @@
             this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
             this.pnlChinh.TabIndex = 1;
             // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.White;
-            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDangXuat.Location = new System.Drawing.Point(3, 682);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(334, 140);
-            this.btnDangXuat.TabIndex = 4;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.UseVisualStyleBackColor = false;
-            // 
             // FormTrangChuForNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
@@ -155,7 +142,6 @@
         private System.Windows.Forms.Button btnHoaDon;
         private System.Windows.Forms.Button btnHangHoa;
         private System.Windows.Forms.Panel pnlChinh;
-        private System.Windows.Forms.Button btnDangXuat;
     }
 }
 

@@ -23,7 +23,7 @@ namespace ThietKeGiaoDien
             InitializeComponent();
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if(fXuat == null)
             {
@@ -63,17 +63,6 @@ namespace ThietKeGiaoDien
             pnl_hoadon.Controls.Add(fLichSu);
             fLichSu.Dock = DockStyle.Fill;
             fLichSu.Show();
-        }
-        private void FormXX_MouseLeave(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(255, 196, 164);
-        }
-
-        private void FormXX_MouseEnter(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(64, 72, 114);
         }
     }
 }

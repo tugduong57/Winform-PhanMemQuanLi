@@ -22,7 +22,7 @@ namespace ThietKeGiaoDien
             InitializeComponent();
         }
 
-        public void btnKH_Click(object sender, EventArgs e)
+        private void btnKH_Click(object sender, EventArgs e)
         {
             if (fDT_KH == null)
             {
@@ -49,17 +49,6 @@ namespace ThietKeGiaoDien
             pnl_DoiTac.Controls.Add(fDT_NCC);
             fDT_NCC.Dock = DockStyle.Fill;
             fDT_NCC.Show();
-        }
-        private void FormXX_MouseLeave(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(255, 196, 164);
-        }
-
-        private void FormXX_MouseEnter(object sender, EventArgs e)
-        {
-            Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(64, 72, 114);
         }
     }
 }
