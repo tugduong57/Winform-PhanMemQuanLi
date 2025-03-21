@@ -76,7 +76,6 @@ namespace ThietKeGiaoDien
         private void btn_sua_Click(object sender, EventArgs e)
         {
             string tenNguoiDung = tb_tenND.Text.Trim();
-            tb_tk.Enabled = false;
             string taiKhoan = tb_tk.Text.Trim();
             string matKhau = tb_mk.Text.Trim();
             string ghiChu = tb_GhiChu.Text.Trim();
@@ -148,7 +147,7 @@ namespace ThietKeGiaoDien
                 tb_mk.Text = row.Cells["Mật khẩu"].Value.ToString();
                 tb_tenND.Text = row.Cells["Tên người dùng"].Value.ToString();
                 tb_GhiChu.Text = row.Cells["Ghi chú"].Value.ToString();
-                btn_them.Enabled = false;
+                btn_them.Enabled = false; tb_tk.Enabled = false;
             }
         }
     }

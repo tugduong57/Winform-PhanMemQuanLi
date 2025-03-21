@@ -35,6 +35,18 @@ namespace ThietKeGiaoDien
                 bienConnect.Close(); bienConnect.Dispose();
             }
         }
+
+
+        private void FormTrangChuForNhanVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Đăng xuất",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+                e.Cancel = true;
+        }
+
+
         void resetBackColorOf3Button()
         {
             foreach (Button x in tableLayoutPanel1.Controls)

@@ -113,6 +113,7 @@
             this.tbPassword.Size = new System.Drawing.Size(359, 38);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.Text = "Mật khẩu";
+            this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 

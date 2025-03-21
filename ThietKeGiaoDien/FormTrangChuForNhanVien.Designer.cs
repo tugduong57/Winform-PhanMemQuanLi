@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlChinh = new System.Windows.Forms.Panel();
             this.btnHangHoa = new System.Windows.Forms.Button();
             this.btnDoiTac = new System.Windows.Forms.Button();
             this.btnHoaDon = new System.Windows.Forms.Button();
+            this.pnlChinh = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,15 +59,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.020666F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 853);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // pnlChinh
-            // 
-            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChinh.Location = new System.Drawing.Point(340, 0);
-            this.pnlChinh.Name = "pnlChinh";
-            this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
-            this.pnlChinh.TabIndex = 1;
             // 
             // btnHangHoa
             // 
@@ -126,9 +117,18 @@
             this.btnHoaDon.MouseEnter += new System.EventHandler(this.btnX_MouseEnter);
             this.btnHoaDon.MouseLeave += new System.EventHandler(this.btnX_MouseLeave);
             // 
+            // pnlChinh
+            // 
+            this.pnlChinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlChinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlChinh.Location = new System.Drawing.Point(340, 0);
+            this.pnlChinh.Name = "pnlChinh";
+            this.pnlChinh.Size = new System.Drawing.Size(1242, 853);
+            this.pnlChinh.TabIndex = 1;
+            // 
             // FormTrangChuForNhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
             this.Controls.Add(this.pnlChinh);
@@ -139,6 +139,7 @@
             this.Name = "FormTrangChuForNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí bán hàng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTrangChuForNhanVien_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormTrangChuForNhanVien_FormClosed);
             this.Load += new System.EventHandler(this.FormTrangChuForNhanVien_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

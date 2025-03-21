@@ -34,6 +34,7 @@
             this.btnXuatFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvBGia = new System.Windows.Forms.DataGridView();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBGia)).BeginInit();
@@ -133,6 +134,11 @@
             this.dgvBGia.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBGia_CellDoubleClick);
             this.dgvBGia.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBGia_CellEndEdit);
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "pdf";
+            this.saveFileDialog.Title = "Chọn nơi lưu file ";
+            // 
             // FormBangGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
@@ -161,5 +167,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dgvBGia;
         private System.Windows.Forms.Button btnXuatFile;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,7 +65,6 @@
             this.btnNam = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXuatFile = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -127,7 +126,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.tableLayoutPanel6);
             this.panel1.Controls.Add(this.tableLayoutPanel5);
             this.panel1.Controls.Add(this.tableLayoutPanel4);
@@ -408,17 +406,17 @@
             // 
             // chartBaoCao
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartBaoCao.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chartBaoCao.ChartAreas.Add(chartArea2);
             this.chartBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartBaoCao.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chartBaoCao.Legends.Add(legend2);
             this.chartBaoCao.Location = new System.Drawing.Point(0, 0);
             this.chartBaoCao.Name = "chartBaoCao";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartBaoCao.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartBaoCao.Series.Add(series2);
             this.chartBaoCao.Size = new System.Drawing.Size(851, 499);
             this.chartBaoCao.TabIndex = 6;
             this.chartBaoCao.Text = "chart1";
@@ -517,6 +515,7 @@
             // 
             // btnNam
             // 
+            this.btnNam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNam.Location = new System.Drawing.Point(566, 3);
@@ -524,7 +523,7 @@
             this.btnNam.Size = new System.Drawing.Size(128, 44);
             this.btnNam.TabIndex = 5;
             this.btnNam.Text = "Năm";
-            this.btnNam.UseVisualStyleBackColor = true;
+            this.btnNam.UseVisualStyleBackColor = false;
             this.btnNam.Click += new System.EventHandler(this.btnNam_Click);
             // 
             // tableLayoutPanel9
@@ -552,13 +551,6 @@
             this.btnXuatFile.Text = "Xuất thống kê";
             this.btnXuatFile.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(62, 629);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 53);
-            this.textBox1.TabIndex = 4;
-            // 
             // FormThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
@@ -576,7 +568,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -632,6 +623,5 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBaoCao;
         private System.Windows.Forms.Label lbTongSoHoaDon;
         private System.Windows.Forms.Label lbTongKet;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

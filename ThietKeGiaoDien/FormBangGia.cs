@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ThietKeGiaoDien
 {
@@ -107,20 +108,37 @@ namespace ThietKeGiaoDien
             cmd.ExecuteNonQuery();
         }
 
-        private void ExportDataGridViewToPDF(DataGridView dgv, string pdfPath)
+        private void ExportDataGridViewToPDF(DataGridView dgv, string pdfPath, string tenHang)
         {
             Document document = new Document(PageSize.A4, 10f, 10f, 20f, 20f);
             try
             {
+                // Tạo 1 document, tại pdfPath
                 PdfWriter.GetInstance(document, new FileStream(pdfPath, FileMode.Create));
+                MessageBox.Show("Lưu file thành công");
+
                 document.Open();
 
-                PdfPTable pdfTable = new PdfPTable(dgv.Columns.Count);
+                string fontPath = Directory.GetParent(Application.StartupPath).Parent.FullName + "\\Resources\\times.ttf";
+                BaseFont baseFont = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 12);
+
+                // Header
+                iTextSharp.text.Font headerFont = new iTextSharp.text.Font(baseFont, 16, iTextSharp.text.Font.BOLD);
+                Paragraph header = new Paragraph("Bảng giá hãng " + tenHang, headerFont);
+                header.Alignment = Element.ALIGN_CENTER;  // Căn giữa header
+                document.Add(header);
+                document.Add(new Paragraph("\n"));
+
+                // Bảng giá
+                PdfPTable pdfTable = new PdfPTable(dgv.Columns.Count-1);
                 pdfTable.WidthPercentage = 100;
 
                 foreach (DataGridViewColumn column in dgv.Columns)
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                    if (column.HeaderText == "Giá nhập")
+                        continue;
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, font));
                     cell.BackgroundColor = new BaseColor(240, 240, 240);
                     pdfTable.AddCell(cell);
                 }
@@ -129,7 +147,13 @@ namespace ThietKeGiaoDien
                 {
                     if (row.IsNewRow) continue;
                     foreach (DataGridViewCell cell in row.Cells)
-                        pdfTable.AddCell(cell.Value?.ToString() ?? "");
+                    {
+                        DataGridViewColumn col = dgv.Columns[cell.ColumnIndex];
+                        if (col.HeaderText == "Giá nhập")
+                            continue;
+                        string cellText = cell.Value?.ToString() ?? "";
+                        pdfTable.AddCell(new Phrase(cellText, font));
+                    }
                 }
                 document.Add(pdfTable);
             }
@@ -145,9 +169,12 @@ namespace ThietKeGiaoDien
 
         private void btnXuatFile_Click(object sender, EventArgs e)
         {
-            string pdfPath = @"C:\Users\tugdu\OneDrive\Desktop\DataGridViewExport.pdf";
-            ExportDataGridViewToPDF(dgvBGia, pdfPath);
-            MessageBox.Show("Xuất PDF thành công: " + pdfPath);
+            string pdfPath;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pdfPath = saveFileDialog.FileName;
+                ExportDataGridViewToPDF(dgvBGia, pdfPath, cbHang.Text);
+            }
         }
     }
 }

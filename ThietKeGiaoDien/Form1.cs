@@ -36,6 +36,16 @@ namespace ThietKeGiaoDien
             }
         }
 
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Đăng xuất",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (result == DialogResult.No)
+                e.Cancel = true;
+        }
+
         void resetBackColorOf6Button()
         {
             foreach (Button x in tableLayoutPanel1.Controls)
@@ -116,7 +126,6 @@ namespace ThietKeGiaoDien
         }
 
         FormBangGia childBangGia;// = new FormBangGia();
-
         private void btnBangGia_Click(object sender, EventArgs e)
         {
             resetBackColorOf6Button();

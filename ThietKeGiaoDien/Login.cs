@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ThietKeGiaoDien
 {
@@ -30,13 +31,6 @@ namespace ThietKeGiaoDien
         {
             bien_Connect = new SqlConnection(ConnectString);
             bien_Connect.Open();
-
-            string lenhTruyVanSQL = "Select [Tài khoản], [Mật khẩu] from NguoiDung";
-            SqlDataAdapter bienSQLDataAdapter = new SqlDataAdapter(lenhTruyVanSQL, bien_Connect);
-            // Lấy dữ liệu Tài khoản mật khẩu từ DataBase
-            bienSQLDataAdapter.Fill(bienDataTable_TaiKhoan);
-            // Che mật khẩu textBox Password
-            tbPassword.UseSystemPasswordChar = true;
         }
 
         private void btnShowPassword_Click(object sender, EventArgs e)
@@ -76,31 +70,47 @@ namespace ThietKeGiaoDien
 
         private void btLogin_Click(object sender, EventArgs e)
         {
+
+            string lenhTruyVanSQL = "Select [Tài khoản], [Mật khẩu] from NguoiDung";
+            SqlDataAdapter bienSQLDataAdapter = new SqlDataAdapter(lenhTruyVanSQL, bien_Connect);
+            bienDataTable_TaiKhoan = new DataTable();
+            bienSQLDataAdapter.Fill(bienDataTable_TaiKhoan);
+
             string user = tbUser.Text; string password = tbPassword.Text;
             CurrentUser.TaiKhoan = user;
+            bool check = true; // false khi đã trùng với tên tài khoản trong database
             foreach (DataRow row in bienDataTable_TaiKhoan.Rows)
             {
                 if (row["Tài khoản"].ToString() == user && row["Tài khoản"].ToString() != "admin")
                 {
+                    check = false;
                     if (row["Mật khẩu"].ToString() == password)
                     {
                         this.Hide();  // Hiển thị trang chủ dành cho Nhân Viên
                         FormTrangChuForNhanVien formTrangChuForNhanVien = new FormTrangChuForNhanVien();
                         formTrangChuForNhanVien.ShowDialog();
-                        this.Close();
+                        this.Show();
                     }
+                    else
+                        MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                    break;
                 }
-                if (row["Tài khoản"].ToString() == user && row["Tài khoản"].ToString() == "admin")
+                else if (row["Tài khoản"].ToString() == user && row["Tài khoản"].ToString() == "admin")
                 {
+                    check = false;
                     if (row["Mật khẩu"].ToString() == password)
                     {
                         this.Hide(); // Hiển thị trang chủ dành cho Quản lí
                         Form1 form1 = new Form1(); form1.ShowDialog();
-                        this.Close();
+                        this.Show();
                     }
+                    else
+                        MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                    break;
                 }
             }
-            MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+            if (check)
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
