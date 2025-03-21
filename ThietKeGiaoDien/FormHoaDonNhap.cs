@@ -34,7 +34,6 @@ namespace ThietKeGiaoDien
         {
             dgvHoaDonNhap.RowTemplate.Height = 40;
             dgvHoaDonNhap.Rows[0].Height = 40;
-
             try
             {
                 string lenhSQL = "SELECT [Mã Đối Tác], [Tên Đối Tác], [Địa Chỉ], [Số Điện Thoại], [Tuổi] FROM DoiTac " +
@@ -59,10 +58,57 @@ namespace ThietKeGiaoDien
             {
                 MessageBox.Show("Lỗi tải khách hàng: " + ex.Message);
             }
+            //load hang
+            try
+            {
+                string lenhSQL = "select DISTINCT Hãng from SanPham";
+                SqlDataAdapter adapter = new SqlDataAdapter(lenhSQL, BienConnect);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                DataGridViewComboBoxColumn cbbHang = (DataGridViewComboBoxColumn)dgvHoaDonNhap.Columns["cl_Hang"];
+                cbbHang.DataSource = dt;
+                cbbHang.DisplayMember = "Hãng";
+
+            }
+            catch(Exception ex)
+            {
+                    MessageBox.Show("Lỗi tải Hãng" + ex.Message);
+            }
+            try
+            {
+                string lenhSQL = "select DISTINCT [Phân Loại] from SanPham";
+                SqlDataAdapter adapter = new SqlDataAdapter(lenhSQL, BienConnect);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                DataGridViewComboBoxColumn cbbHang = (DataGridViewComboBoxColumn)dgvHoaDonNhap.Columns["cl_phanLoai"];
+                cbbHang.DataSource = dt;
+                cbbHang.DisplayMember = "Phân Loại";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải Phân Loại" + ex.Message);
+            }
+            try
+            {
+                string lenhSQL = "select DISTINCT [Đơn vị tính] from dvtSanPham";
+                SqlDataAdapter adapter = new SqlDataAdapter(lenhSQL, BienConnect);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                DataGridViewComboBoxColumn cbbHang = (DataGridViewComboBoxColumn)dgvHoaDonNhap.Columns["cl_DVT"];
+                cbbHang.DataSource = dt;
+                cbbHang.DisplayMember = "Đơn vị tính";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải đơn vị tính" + ex.Message);
+            }
         }
         public string TaoMaHoaDonMoi()
         {
-            string newMaHD = "HD01"; // Mặc định nếu chưa có hóa đơn nào
+            string newMaHD = "HDN01"; // Mặc định nếu chưa có hóa đơn nào
 
             string query = "SELECT MAX(CAST(SUBSTRING([Mã hóa đơn], 4, LEN([Mã hóa đơn]) - 3) AS INT)) FROM HoaDon ";
 
@@ -71,7 +117,7 @@ namespace ThietKeGiaoDien
                 var result = cmd.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out int so))
                 {
-                    newMaHD = "HD" + (so + 1).ToString("D3");
+                    newMaHD = "HDN" + (so + 1).ToString("D3");
                 }
             }
             return newMaHD;
@@ -455,10 +501,14 @@ namespace ThietKeGiaoDien
         //event khi roi khoi cell (ap dung cho soluong va dongia)
         private void dgvHoaDonNhap_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            int columnIndex = e.ColumnIndex;
+            int rowIndex = e.RowIndex;
+            if(columnIndex == 0)
+            {
+
+            }
             if (e.ColumnIndex == 6 || e.ColumnIndex == 5)
             {
-                int columnIndex = e.ColumnIndex;
-                int rowIndex = e.RowIndex;
 
                 //MessageBox.Show(Convert.ToString(columnIndex));
                 //row[rowIndex] = hang vua chinh sua
@@ -487,10 +537,98 @@ namespace ThietKeGiaoDien
                 }
             }
         }
+        private void dgvHoaDonNhap_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            
+            string newValue = e.FormattedValue.ToString().Trim();
+
+            if (string.IsNullOrEmpty(newValue))
+            {
+                return;
+            }
+
+            if (dgvHoaDonNhap.Columns[e.ColumnIndex].Name == "cl_Hang")
+            {
+                DataGridViewComboBoxColumn comboBoxColumn = (DataGridViewComboBoxColumn)dgvHoaDonNhap.Columns["cl_Hang"];
+                DataTable dataTable = (DataTable)comboBoxColumn.DataSource;
+
+                bool isValueExists = false;
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if (row["Hãng"].ToString() == newValue)
+                    {
+                        isValueExists = true;
+                        break;
+                    }
+                }
+
+                if (!isValueExists)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    newRow["Hãng"] = newValue;
+                    dataTable.Rows.Add(newRow);
+                }
+            }
+            else if (dgvHoaDonNhap.Columns[e.ColumnIndex].Name == "cl_phanLoai")
+            {
+                DataGridViewComboBoxColumn comboBoxColumn = (DataGridViewComboBoxColumn)dgvHoaDonNhap.Columns["cl_phanLoai"];
+                DataTable dataTable = (DataTable)comboBoxColumn.DataSource;
+               
+                bool isValueExists = false;
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if (row["Phân Loại"].ToString() == newValue)
+                    {
+                        isValueExists = true;
+                        break;
+                    }
+                }
+
+                if (!isValueExists)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    newRow["Phân Loại"] = newValue;
+                    dataTable.Rows.Add(newRow);
+                }
+            }
+            else if (dgvHoaDonNhap.Columns[e.ColumnIndex].Name == "cl_DVT")
+            {
+                DataGridViewComboBoxColumn comboBoxColumn = (DataGridViewComboBoxColumn)dgvHoaDonNhap.Columns["cl_DVT"];
+                DataTable dataTable = (DataTable)comboBoxColumn.DataSource;
+
+                bool isValueExists = false;
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if (row["Đơn Vị Tính"].ToString() == newValue)
+                    {
+                        isValueExists = true;
+                        break;
+                    }
+                }
+
+                if (!isValueExists)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    newRow["Đơn Vị Tính"] = newValue;
+                    dataTable.Rows.Add(newRow);
+                }
+            }
+        }
 
         //khi bat dau chinh sua cell
         private void dgvHoaDonNhap_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
+            if (dgvHoaDonNhap.CurrentCell.ColumnIndex == dgvHoaDonNhap.Columns["cl_Hang"].Index
+                || dgvHoaDonNhap.CurrentCell.ColumnIndex == dgvHoaDonNhap.Columns["cl_phanLoai"].Index
+                || dgvHoaDonNhap.CurrentCell.ColumnIndex == dgvHoaDonNhap.Columns["cl_DVT"].Index)
+            {
+                if (e.Control is ComboBox comboBox)
+                {
+                    comboBox.DropDownStyle = ComboBoxStyle.DropDown; // Cho phép nhập liệu
+                    
+                }
+            }
+
             if (e.Control is TextBox tb)
             {
                 tb.Font = new Font("Arial", 18, FontStyle.Regular); // Đặt font chữ 18
@@ -499,19 +637,19 @@ namespace ThietKeGiaoDien
         private void Luu_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.WhiteSmoke;
+            buttonX.BackColor = Color.Olive;
         }
 
         private void FormXX_MouseEnter(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.FromArgb(247, 200, 115);
+            buttonX.BackColor = Color.FromArgb(64, 72, 114);
         }
 
         private void Huy_MouseLeave(object sender, EventArgs e)
         {
             Button buttonX = (Button)sender;
-            buttonX.BackColor = Color.WhiteSmoke;
+            buttonX.BackColor = Color.Red;
         }
 
         // in
@@ -737,5 +875,7 @@ namespace ThietKeGiaoDien
                 Brushes.Black, new Point(x + 450, y + 1000)
                 );
         }
+
+
     }
 }

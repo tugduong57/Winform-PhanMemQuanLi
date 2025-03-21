@@ -155,10 +155,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.BackColor = System.Drawing.Color.Olive;
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(574, 106);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 43);
@@ -171,10 +170,9 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(165, 40);
@@ -445,7 +443,6 @@
             // 
             // btn_InHD
             // 
-            this.btn_InHD.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_InHD.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_InHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_InHD.Location = new System.Drawing.Point(174, 3);
@@ -453,7 +450,7 @@
             this.btn_InHD.Size = new System.Drawing.Size(165, 40);
             this.btn_InHD.TabIndex = 15;
             this.btn_InHD.Text = "In";
-            this.btn_InHD.UseVisualStyleBackColor = false;
+            this.btn_InHD.UseVisualStyleBackColor = true;
             this.btn_InHD.Click += new System.EventHandler(this.btn_InHD_Click);
             // 
             // tb_GhiChu
@@ -514,6 +511,7 @@
             this.dgvHoaDonNhap.Size = new System.Drawing.Size(1096, 409);
             this.dgvHoaDonNhap.TabIndex = 0;
             this.dgvHoaDonNhap.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonNhap_CellEndEdit);
+            this.dgvHoaDonNhap.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvHoaDonNhap_CellValidating);
             this.dgvHoaDonNhap.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvHoaDonNhap_EditingControlShowing);
             // 
             // cl_masp
