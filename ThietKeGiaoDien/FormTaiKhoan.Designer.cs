@@ -130,7 +130,7 @@
             // 
             this.btn_them.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_them.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_them.Location = new System.Drawing.Point(608, 3);
+            this.btn_them.Location = new System.Drawing.Point(607, 3);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(142, 43);
             this.btn_them.TabIndex = 9;
@@ -142,9 +142,9 @@
             // 
             this.btn_xoa.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xoa.Location = new System.Drawing.Point(910, 3);
+            this.btn_xoa.Location = new System.Drawing.Point(909, 3);
             this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(132, 43);
+            this.btn_xoa.Size = new System.Drawing.Size(131, 43);
             this.btn_xoa.TabIndex = 11;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
@@ -154,7 +154,7 @@
             // 
             this.btn_sua.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sua.Location = new System.Drawing.Point(762, 3);
+            this.btn_sua.Location = new System.Drawing.Point(761, 3);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(142, 43);
             this.btn_sua.TabIndex = 10;
@@ -202,7 +202,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.99271F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.15191F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.95908F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel2.Controls.Add(this.btn_them, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.btn_xoa, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.btn_sua, 5, 0);

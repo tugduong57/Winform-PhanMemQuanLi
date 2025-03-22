@@ -21,6 +21,7 @@ namespace ThietKeGiaoDien
 
         private void FormTaiKhoan_Load(object sender, EventArgs e)
         {
+            dgvTaiKhoan.RowTemplate.Height = 35;
             string lenhSQl = "select * from NguoiDung";
             SqlDataAdapter ada = new SqlDataAdapter(lenhSQl, connOfTaiKhoan);
             DataTable dt = new DataTable();

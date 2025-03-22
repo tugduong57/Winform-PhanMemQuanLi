@@ -52,7 +52,7 @@ namespace ThietKeGiaoDien
                 tb_DiaChi.Text = "";
                 tb_SDT.Text = "";
                 tb_Tuoi.Text = "";
-                
+
             }
             catch (Exception ex)
             {
@@ -71,9 +71,9 @@ namespace ThietKeGiaoDien
                 cbbHang.DisplayMember = "Hãng";
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                    MessageBox.Show("Lỗi tải Hãng" + ex.Message);
+                MessageBox.Show("Lỗi tải Hãng" + ex.Message);
             }
             try
             {
@@ -226,7 +226,7 @@ namespace ThietKeGiaoDien
                 {
                     return true;
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -258,10 +258,10 @@ namespace ThietKeGiaoDien
             bool isValid = true;
             foreach (DataGridViewRow row in dgvHoaDonNhap.Rows)
             {
-                
+
                 if (!row.IsNewRow)//bo qua hang rong cuoi cung
-                {             
-                    string maSP = row.Cells["cl_masp"].Value?.ToString().Trim();    
+                {
+                    string maSP = row.Cells["cl_masp"].Value?.ToString().Trim();
                     maSP_public = maSP;
                     string tenSP = row.Cells["cl_tenSP"].Value?.ToString().Trim();
                     string hang = row.Cells["cl_Hang"].Value?.ToString().Trim();
@@ -320,57 +320,57 @@ namespace ThietKeGiaoDien
 
                     try
                     {
-                            if (TonTaiMaSP(maSP))
+                        if (TonTaiMaSP(maSP))
+                        {
+                            //dvtsanpham
+                            string checkSQL2 = "SELECT COUNT(*) FROM dvtSanPham WHERE [Mã sản phẩm] = @maSP AND [Đơn vị tính] = @donViTinh";
+                            SqlCommand sqlCommand2 = new SqlCommand(checkSQL2, BienConnect);
+                            sqlCommand2.Parameters.AddWithValue("@maSP", maSP_public);
+                            sqlCommand2.Parameters.AddWithValue("@donViTinh", DVT_public);
+
+                            int count = (int)sqlCommand2.ExecuteScalar();
+
+                            if (count == 0) //neu chua co, them moi
                             {
-                                //dvtsanpham
-                                string checkSQL2 = "SELECT COUNT(*) FROM dvtSanPham WHERE [Mã sản phẩm] = @maSP AND [Đơn vị tính] = @donViTinh";
-                                SqlCommand sqlCommand2 = new SqlCommand(checkSQL2, BienConnect);
-                                sqlCommand2.Parameters.AddWithValue("@maSP", maSP_public);
-                                sqlCommand2.Parameters.AddWithValue("@donViTinh", DVT_public);
+                                string insertQuery = "INSERT INTO dvtSanPham ([Mã sản phẩm], [Đơn vị tính], [Số lượng], [Giá nhập trung bình], [Đơn giá], [Ghi chú]) " +
+                                        "VALUES (@MaSP, @DVT, @soLuong, @giaNhap, @thanhTien, @ghiChu)";
 
-                                int count = (int)sqlCommand2.ExecuteScalar();
+                                SqlCommand cmd = new SqlCommand(insertQuery, BienConnect);
+                                cmd.Parameters.AddWithValue("@MaSP", maSP_public);
+                                cmd.Parameters.AddWithValue("@DVT", DVT_public);
+                                cmd.Parameters.AddWithValue("@soLuong", soLuong);
+                                cmd.Parameters.AddWithValue("@giaNhap", giaNhap);
+                                cmd.Parameters.AddWithValue("@thanhTien", thanhTien);
+                                cmd.Parameters.AddWithValue("@ghiChu", ghiChu);
 
-                                if (count == 0) //neu chua co, them moi
-                                {
-                                    string insertQuery = "INSERT INTO dvtSanPham ([Mã sản phẩm], [Đơn vị tính], [Số lượng], [Giá nhập trung bình], [Đơn giá], [Ghi chú]) " +
-                                            "VALUES (@MaSP, @DVT, @soLuong, @giaNhap, @thanhTien, @ghiChu)";
-
-                                    SqlCommand cmd = new SqlCommand(insertQuery, BienConnect);
-                                    cmd.Parameters.AddWithValue("@MaSP", maSP_public);
-                                    cmd.Parameters.AddWithValue("@DVT", DVT_public);
-                                    cmd.Parameters.AddWithValue("@soLuong", soLuong);
-                                    cmd.Parameters.AddWithValue("@giaNhap", giaNhap);
-                                    cmd.Parameters.AddWithValue("@thanhTien", thanhTien);
-                                    cmd.Parameters.AddWithValue("@ghiChu", ghiChu);
-
-                                    cmd.ExecuteNonQuery();
-                                    MessageBox.Show("Thêm dvt sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    string updateQuery = @"UPDATE dvtSanPham 
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Thêm dvt sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                string updateQuery = @"UPDATE dvtSanPham 
                                     SET [Giá nhập trung bình] = ([Giá nhập trung bình]*[Số lượng] + @soLuong*@GiaNhapMoi) / ([Số lượng] + @soLuong), 
                                     [Số lượng] = [Số lượng] + @soLuong, 
                                     [Đơn giá] = [Đơn giá] + @thanhTien
                                     WHERE [Mã sản phẩm] = @maSP AND [Đơn vị tính] = @donViTinh";
-                                    SqlCommand cmd = new SqlCommand(updateQuery, BienConnect);
+                                SqlCommand cmd = new SqlCommand(updateQuery, BienConnect);
 
-                                    cmd.Parameters.AddWithValue("@MaSP", maSP_public);
-                                    cmd.Parameters.AddWithValue("@donViTinh", DVT_public);
-                                    cmd.Parameters.AddWithValue("@soLuong", soLuong);
-                                    cmd.Parameters.AddWithValue("@GiaNhapMoi", giaNhap);
-                                    cmd.Parameters.AddWithValue("@thanhTien", thanhTien);
-                                    cmd.Parameters.AddWithValue("@ghiChu", ghiChu);
+                                cmd.Parameters.AddWithValue("@MaSP", maSP_public);
+                                cmd.Parameters.AddWithValue("@donViTinh", DVT_public);
+                                cmd.Parameters.AddWithValue("@soLuong", soLuong);
+                                cmd.Parameters.AddWithValue("@GiaNhapMoi", giaNhap);
+                                cmd.Parameters.AddWithValue("@thanhTien", thanhTien);
+                                cmd.Parameters.AddWithValue("@ghiChu", ghiChu);
 
 
                                 cmd.ExecuteNonQuery();
-                                    MessageBox.Show("Thêm sản dvt2phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                }
+                                MessageBox.Show("Thêm sản dvt2phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
-                            else
-                            {
+
+                        }
+                        else
+                        {
                             string insertQuery = "INSERT INTO SanPham ([Mã sản phẩm], [Tên sản phẩm], [Hãng], [Phân Loại]) " +
                                                  "VALUES (@MaSP, @TenSP, @hang, @phanLoai)";
                             SqlCommand cmd = new SqlCommand(insertQuery, BienConnect);
@@ -398,7 +398,7 @@ namespace ThietKeGiaoDien
                             MessageBox.Show("Thêm dvt sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Lỗi " + ex.Message);
                         return false;
@@ -407,7 +407,7 @@ namespace ThietKeGiaoDien
             }
             return true;
         }
-            
+
         private void LuuHoaDon()
         {
             string maHD = TaoMaHoaDonMoi();
@@ -444,7 +444,7 @@ namespace ThietKeGiaoDien
 
                     string maSP = row.Cells["cl_maSP"].Value.ToString();
 
-                    if(maSP == null)
+                    if (maSP == null)
                     {
                         MessageBox.Show("Vui lòng nhập thông tin sản phẩm", "Lỗi", MessageBoxButtons.OK);
                     }
@@ -466,7 +466,7 @@ namespace ThietKeGiaoDien
                     MessageBox.Show("Lưu chi tiết hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi lưu chi tiết hóa đơn: " + ex.Message);
             }
@@ -477,7 +477,7 @@ namespace ThietKeGiaoDien
             {
                 return;
             }
-            if(!LuuSanPham())
+            if (!LuuSanPham())
             {
                 return;
             }
@@ -503,7 +503,7 @@ namespace ThietKeGiaoDien
         {
             int columnIndex = e.ColumnIndex;
             int rowIndex = e.RowIndex;
-            if(columnIndex == 0)
+            if (columnIndex == 0)
             {
 
             }
@@ -539,7 +539,7 @@ namespace ThietKeGiaoDien
         }
         private void dgvHoaDonNhap_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            
+
             string newValue = e.FormattedValue.ToString().Trim();
 
             if (string.IsNullOrEmpty(newValue))
@@ -573,7 +573,7 @@ namespace ThietKeGiaoDien
             {
                 DataGridViewComboBoxColumn comboBoxColumn = (DataGridViewComboBoxColumn)dgvHoaDonNhap.Columns["cl_phanLoai"];
                 DataTable dataTable = (DataTable)comboBoxColumn.DataSource;
-               
+
                 bool isValueExists = false;
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -625,7 +625,7 @@ namespace ThietKeGiaoDien
                 if (e.Control is ComboBox comboBox)
                 {
                     comboBox.DropDownStyle = ComboBoxStyle.DropDown; // Cho phép nhập liệu
-                    
+
                 }
             }
 

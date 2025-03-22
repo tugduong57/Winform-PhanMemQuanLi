@@ -76,6 +76,8 @@ namespace ThietKeGiaoDien
             }
         }
 
+        //string oldValue;
+
         private void dgvBGia_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -95,17 +97,18 @@ namespace ThietKeGiaoDien
             try
             {
                 DonGia = Convert.ToDecimal(noidungDaNhap);
+                string LenhSQL = "UPDATE dvtSanPham SET [Đơn giá] = " + $"'{DonGia}' " +
+                        $"WHERE [Mã sản phẩm] = '{MaSanPham}' AND [Đơn vị tính] = '{DonViTinh}';";
+
+                SqlCommand cmd = new SqlCommand(LenhSQL, connOfBangGia);
+                cmd.ExecuteNonQuery();
             }
             catch
             {
                 MessageBox.Show("Có lỗi khi nhập đơn giá!");
                 return;
             }
-            string LenhSQL = "UPDATE dvtSanPham SET [Đơn giá] = " + $"'{DonGia}' " +
-                        $"WHERE [Mã sản phẩm] = '{MaSanPham}' AND [Đơn vị tính] = '{DonViTinh}';";
-
-            SqlCommand cmd = new SqlCommand(LenhSQL, connOfBangGia);
-            cmd.ExecuteNonQuery();
+            
         }
 
         private void ExportDataGridViewToPDF(DataGridView dgv, string pdfPath, string tenHang)
